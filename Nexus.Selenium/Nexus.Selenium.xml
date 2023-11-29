@@ -1,0 +1,2377 @@
+<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>Aquality.Selenium</name>
+  </assembly>
+  <members>
+    <member name="T:Aquality.Selenium.Browsers.AqualityServices">
+      <summary>
+        Controls browser instance creation.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Browsers.AqualityServices.IsBrowserStarted">
+      <summary>
+        Check if browser already started.
+      </summary>
+      <value>true if browser started and false otherwise.</value>
+    </member>
+    <member name="P:Aquality.Selenium.Browsers.AqualityServices.Logger">
+      <summary>
+        Gets registered instance of logger
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Browsers.AqualityServices.LocalizedLogger">
+      <summary>
+        Gets registered instance of localized logger
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Browsers.AqualityServices.ConditionalWait">
+      <summary>
+        Gets ConditionalWait object
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Browsers.AqualityServices.Browser">
+      <summary>
+        Gets and sets thread-safe instance of browser.
+      </summary>
+      <value>Instance of desired browser.</value>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.AqualityServices.SetStartup(Aquality.Selenium.Browsers.BrowserStartup)">
+      <summary>
+        Method which allow user to override or add custom services.
+      </summary>
+      <param name="startup">
+        <see cref="T:Aquality.Selenium.Browsers.BrowserStartup"/>> object with custom or overriden services.
+      </param>
+    </member>
+    <member name="P:Aquality.Selenium.Browsers.AqualityServices.BrowserFactory">
+      <summary>
+        Factory for application creation.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.AqualityServices.SetDefaultFactory">
+      <summary>
+        Sets default factory responsible for browser creation.
+        RemoteBrowserFactory if value set in configuration and LocalBrowserFactory otherwise.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.AqualityServices.Get``1">
+      <summary>
+        Resolves required service from <see cref="P:Aquality.Selenium.Browsers.AqualityServices.ServiceProvider"/>
+      </summary>
+      <typeparam name="T">type of required service.</typeparam>
+      <exception cref="T:System.InvalidOperationException">Thrown if there is no service of the required type.</exception>
+      <returns></returns>
+    </member>
+    <member name="T:Aquality.Selenium.Browsers.Browser">
+      <summary>
+        Provides functionality to work with browser via Selenium WebDriver.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.#ctor(OpenQA.Selenium.WebDriver)">
+      <summary>
+        Instantiate browser.
+      </summary>
+      <param name="webDriver">Instance of Selenium WebDriver for desired web browser.</param>
+    </member>
+    <member name="P:Aquality.Selenium.Browsers.Browser.Driver">
+      <summary>
+        Gets instance of Selenium WebDriver.
+      </summary>
+      <value>Instance of Selenium WebDriver for desired web browser.</value>
+    </member>
+    <member name="P:Aquality.Selenium.Browsers.Browser.Network">
+      <summary>
+        Provides Network Handling functionality <see cref="T:Aquality.Selenium.Browsers.NetworkHandling"/>
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Browsers.Browser.JavaScriptEngine">
+      <summary>
+        Provides JavaScript Monitoring functionality <see cref="T:Aquality.Selenium.Browsers.JavaScriptHandling"/>
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Browsers.Browser.BrowserName">
+      <summary>
+        Gets name of desired browser from configuration.
+      </summary>
+      <value>Name of browser.</value>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.SetImplicitWaitTimeout(System.TimeSpan)">
+      <summary>
+        Sets Selenium WebDriver ImplicitWait timeout.
+        Default value: <see cref="P:Aquality.Selenium.Core.Configurations.ITimeoutConfiguration.Implicit"/>.
+      </summary>
+      <param name="timeout">Desired Implicit wait timeout.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.SetPageLoadTimeout(System.TimeSpan)">
+      <summary>
+        Sets Selenium WebDriver PageLoad timeout.
+        Default value: <see cref="P:Aquality.Selenium.Configurations.ITimeoutConfiguration.PageLoad"/>.
+        Ignored for Safari cause of https://github.com/SeleniumHQ/selenium-google-code-issue-archive/issues/687.
+      </summary>
+      <param name="timeout">Desired page load timeout.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.SetScriptTimeout(System.TimeSpan)">
+      <summary>
+        Sets Selenium WebDriver AsynchronousJavaScript timeout.
+        Default value: <see cref="P:Aquality.Selenium.Configurations.ITimeoutConfiguration.Script"/>.
+      </summary>
+      <param name="timeout">Desired AsynchronousJavaScript timeout.</param>
+    </member>
+    <member name="P:Aquality.Selenium.Browsers.Browser.DownloadDirectory">
+      <summary>
+        Gets browser configured download directory.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Browsers.Browser.CurrentUrl">
+      <summary>
+        Gets URL of currently opened page in web browser.
+      </summary>
+      <value>String representation of page URL.</value>
+    </member>
+    <member name="P:Aquality.Selenium.Browsers.Browser.IsStarted">
+      <summary>
+        Checks whether current SessionId is null or not.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Browsers.Browser.DevTools">
+      <summary>
+        Provides interface to handle DevTools for Chromium-based and Firefox drivers.
+      </summary>
+      <returns>
+        An instance of <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+      </returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.Quit">
+      <summary>
+        Quit web browser.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.GoTo(System.String)">
+      <summary>
+        Navigates to desired URL.
+      </summary>
+      <param name="url">String representation of URL.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.GoTo(System.Uri)">
+      <summary>
+        Navigates to desired URL.
+      </summary>
+      <param name="url">Desired URL.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.GoBack">
+      <summary>
+        Navigates back.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.GoForward">
+      <summary>
+        Navigates forward.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.RefreshPageWithAlert(Aquality.Selenium.Browsers.AlertAction)">
+      <summary>
+        Refreshes web page and handles alert.
+      </summary>
+      <param name="alertAction">Action which should be done with appeared alert.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.Refresh">
+      <summary>
+        Refreshes current page.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.Tabs">
+      <summary>
+        Provides interface to manage of browser tabs.
+      </summary>
+      <returns>Instance of IBrowserTabNavigation.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.HandleAlert(Aquality.Selenium.Browsers.AlertAction,System.String)">
+      <summary>
+        Handles alert.
+      </summary>
+      <param name="alertAction">Action which should be done with appeared alert.</param>
+      <param name="text">Text which can be send to alert.</param>
+      <exception cref="T:OpenQA.Selenium.NoAlertPresentException">Thrown when no alert found.</exception>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.Maximize">
+      <summary>
+        Maximizes web page.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.WaitForPageToLoad">
+      <summary>
+        Waits for page to load within <see cref="P:Aquality.Selenium.Configurations.ITimeoutConfiguration.PageLoad"/> timeout.
+      </summary>
+      <exception cref="T:System.TimeoutException">Throws when timeout exceeded and page is not loaded.</exception>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.GetScreenshot">
+      <summary>
+        Gets screenshot of web page.
+      </summary>
+      <returns>Screenshot as byte array.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.GetLogs(System.String)">
+      <summary>
+        Gets logs from WebDriver.
+      </summary>
+      <param name="logKind">
+        Type of logs <see cref="T:OpenQA.Selenium.LogType"/>
+      </param>
+      <returns>ReadOnlyCollection of log entries.</returns>
+      <remark>
+        Does not work on current version of Selenium WebDriver. Issue: https://github.com/SeleniumHQ/selenium/issues/7323
+      </remark>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.ScrollWindowBy(System.Int32,System.Int32)">
+      <summary>
+        Scrolls window by coordinates.
+      </summary>
+      <param name="x">Horizontal coordinate.</param>
+      <param name="y">Vertical coordinate.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.ExecuteScriptFromFile(System.String,System.Object[])">
+      <summary>
+        Executes JS script from embedded resource file (*.js).
+      </summary>
+      <param name="embeddedResourcePath">Embedded resource path.</param>
+      <param name="arguments">Script arguments.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.ExecuteScriptFromFile``1(System.String,System.Object[])">
+      <summary>
+        Executes JS script from embedded resource file (*.js) and gets result value.
+      </summary>
+      <param name="embeddedResourcePath">Embedded resource path.</param>
+      <param name="arguments">Script arguments.</param>
+      <typeparam name="T">Type of return value.</typeparam>
+      <returns>Script execution result.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.ExecuteScript(Aquality.Selenium.Browsers.JavaScript,System.Object[])">
+      <summary>
+        Executes predefined JS script.
+      </summary>
+      <param name="scriptName">Name of desired JS script.</param>
+      <param name="arguments">Script arguments.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.ExecuteScript(System.String,System.Object[])">
+      <summary>
+        Executes JS script.
+      </summary>
+      <param name="script">String representation of JS script.</param>
+      <param name="arguments">Script arguments.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.ExecuteScript``1(Aquality.Selenium.Browsers.JavaScript,System.Object[])">
+      <summary>
+        Executes predefined JS script and gets result value.
+      </summary>
+      <param name="scriptName">Name of desired JS script.</param>
+      <param name="arguments">Script arguments.</param>
+      <typeparam name="T">Type of return value.</typeparam>
+      <returns>Script execution result.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.ExecuteScript``1(System.String,System.Object[])">
+      <summary>
+        Executes JS script and gets result value.
+      </summary>
+      <param name="script">String representation of JS script.</param>
+      <param name="arguments">Script arguments.</param>
+      <typeparam name="T">Type of return value.</typeparam>
+      <returns>Script execution result.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.ExecuteAsyncScriptFromFile(System.String,System.Object[])">
+      <summary>
+        Executes JS script asynchronously from embedded resource file (*.js) and gets result value.
+      </summary>
+      <param name="embeddedResourcePath">Embedded resource path.</param>
+      <param name="arguments">Script arguments.</param>
+      <returns>Script execution result.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.ExecuteAsyncScript(Aquality.Selenium.Browsers.JavaScript,System.Object[])">
+      <summary>
+        Executes predefined JS script and gets result value.
+      </summary>
+      <param name="scriptName">Name of desired JS script.</param>
+      <param name="arguments">Script arguments.</param>
+      <returns>Script execution result.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.ExecuteAsyncScript(System.String,System.Object[])">
+      <summary>
+        Executes JS script asynchronously and gets result value.
+      </summary>
+      <param name="script">String representation of JS script.</param>
+      <param name="arguments">Script arguments.</param>
+      <returns>Script execution result.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.Browser.SetWindowSize(System.Int32,System.Int32)">
+      <summary>
+        Sets size of current window.
+      </summary>
+      <param name="width">Width in pixels.</param>
+      <param name="height">Height in pixels.</param>
+    </member>
+    <member name="T:Aquality.Selenium.Browsers.BrowserName">
+      <summary>
+        Supported browser.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Browsers.AlertAction">
+      <summary>
+        Possible alert action.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Browsers.BrowserFactory">
+      <summary>
+        Abstract representation of <see cref="T:Aquality.Selenium.Browsers.IBrowserFactory"/>.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Browsers.BrowserNavigation">
+      <summary>
+        Wrapper over implementation of Selenium WebDriver navigation.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.BrowserNavigation.Back">
+      <summary>
+        Navigates back.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.BrowserNavigation.Forward">
+      <summary>
+        Navigates forward.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.BrowserNavigation.GoToUrl(System.String)">
+      <summary>
+        Navigates to desired url.
+      </summary>
+      <param name="url">String representation of URL.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.BrowserNavigation.GoToUrl(System.Uri)">
+      <summary>
+        Navigates to desired url.
+      </summary>
+      <param name="url">Uri representation of URL.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.BrowserNavigation.Refresh">
+      <summary>
+        Refreshes current page.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.BrowserNetworkExtensions.RegisterBasicAuthenticationAndStartMonitoring(Aquality.Selenium.Browsers.Browser,System.String,System.String,System.String)">
+      <summary>
+        Registers authentication handler and awaits to start network monitoring.
+      </summary>
+      <param name="browser">Browser instance.</param>
+      <param name="hostPart">Part of the host name for URI matcher.</param>
+      <param name="username">Username for authentication.</param>
+      <param name="password">Password for authentication.</param>
+      <returns>A task to be awaited.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.BrowserNetworkExtensions.RegisterBasicAuthenticationAndStartMonitoring(Aquality.Selenium.Browsers.Browser,OpenQA.Selenium.NetworkAuthenticationHandler)">
+      <summary>
+        Registers authentication handler and awaits to start network monitoring.
+      </summary>
+      <param name="browser">Browser instance.</param>
+      <param name="handler">Authentication parameters, such as URI matcher and credentials.</param>
+      <returns>A task to be awaited.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.BrowserNetworkExtensions.EnableHttpExchangeLoggingAndStartMonitoring(Aquality.Selenium.Browsers.Browser,Aquality.Selenium.Logging.HttpExchangeLoggingOptions)">
+      <summary>
+        Enables HTTP Request/Response logging, and starts network monitoring.
+      </summary>
+      <param name="browser">Browser instance.</param>
+      <param name="loggingOptions">Logging preferences.</param>
+      <returns>A task to be awaited.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.BrowserNetworkExtensions.EnableHttpExchangeLogging(Aquality.Selenium.Browsers.Browser,Aquality.Selenium.Logging.HttpExchangeLoggingOptions)">
+      <summary>
+        Enables HTTP Request/Response logging.
+      </summary>
+      <param name="browser">Browser instance.</param>
+      <param name="loggingOptions">Logging preferences.</param>
+    </member>
+    <member name="T:Aquality.Selenium.Browsers.DevToolsEmulationExtensions">
+      <summary>
+        Implementation of version-independent emulation DevTools commands as extensions for <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+        Currently only non-experimental extensions are implemented.
+        For more information, see <see href="https://chromedevtools.github.io/devtools-protocol/tot/Emulation/"/>.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsEmulationExtensions.CanEmulate(Aquality.Selenium.Browsers.DevToolsHandling)">
+      <summary>
+        Tells whether emulation is supported.
+      </summary>
+      <param name="devTools">
+        Current instance of <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+      </param>
+      <returns>A task for asynchronous command with boolean result.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsEmulationExtensions.SetGeoLocationOverride(Aquality.Selenium.Browsers.DevToolsHandling,System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double})">
+      <summary>
+        Overrides the GeoLocation Position or Error. Omitting any of the parameters emulates position unavailable.
+      </summary>
+      <param name="devTools">
+        Current instance of <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+      </param>
+      <param name="latitude">Latitude of GeoLocation.</param>
+      <param name="longitude">Longitude of location.</param>
+      <param name="accuracy">Accuracy of the geoLocation. By default is set to 1 meaning 100% accuracy.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsEmulationExtensions.ClearGeolocationOverride(Aquality.Selenium.Browsers.DevToolsHandling)">
+      <summary>
+        Clears the overridden GeoLocation Position and Error.
+      </summary>
+      <param name="devTools">
+        Current instance of <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+      </param>
+      <returns>A task for asynchronous command.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsEmulationExtensions.SetDeviceMetricsOverride(Aquality.Selenium.Browsers.DevToolsHandling,OpenQA.Selenium.DevTools.ICommand)">
+      <summary>
+        Overrides the values of device screen dimensions.
+      </summary>
+      <param name="devTools">
+        Current instance of <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+      </param>
+      <param name="commandParameters">
+        Version-specific set of parameters.
+        For example, take a look at <see cref="T:OpenQA.Selenium.DevTools.V85.Emulation.SetDeviceMetricsOverrideCommandSettings"/>.
+      </param>
+      <returns>A task for asynchronous command.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsEmulationExtensions.SetDeviceMetricsOverride(Aquality.Selenium.Browsers.DevToolsHandling,System.Int64,System.Int64,System.Boolean,System.Double,System.String,System.Nullable{System.Int32})">
+      <summary>
+        Overrides the values of device screen dimensions.
+      </summary>
+      <param name="devTools">
+        Current instance of <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+      </param>
+      <param name="width">Value to override window.screen.width.</param>
+      <param name="height">Value to override window.screen.height.</param>
+      <param name="mobile">Whether to emulate mobile device. This includes viewport meta tag, overlay scrollbars, text autosizing and more.</param>
+      <param name="deviceScaleFactor">Overriding device scale factor value. 0 disables the override.</param>
+      <param name="screenOrientationType">
+        Orientation type.
+        Allowed Values (in any case): portraitPrimary, portraitSecondary, landscapePrimary, landscapeSecondary.
+      </param>
+      <param name="screenOrientationAngle">Orientation angle. Set only if orientation type was set.</param>
+      <returns>A task for asynchronous command.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsEmulationExtensions.ClearDeviceMetricsOverride(Aquality.Selenium.Browsers.DevToolsHandling)">
+      <summary>
+        Clears the overridden device metrics.
+      </summary>
+      <param name="devTools">
+        Current instance of <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+      </param>
+      <returns>A task for asynchronous command.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsEmulationExtensions.SetUserAgentOverride(Aquality.Selenium.Browsers.DevToolsHandling,OpenQA.Selenium.DevTools.ICommand)">
+      <summary>
+        Overrides the values of user agent.
+      </summary>
+      <param name="devTools">
+        Current instance of <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+      </param>
+      <param name="commandParameters">
+        Version-specific set of parameters.
+        For example, take a look at <see cref="T:OpenQA.Selenium.DevTools.V85.Emulation.SetUserAgentOverrideCommandSettings"/>.
+      </param>
+      <returns>A task for asynchronous command.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsEmulationExtensions.SetUserAgentOverride(Aquality.Selenium.Browsers.DevToolsHandling,System.String,System.String,System.String)">
+      <summary>
+        Overrides the values of user agent.
+      </summary>
+      <param name="devTools">
+        Current instance of <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+      </param>
+      <param name="userAgent">User agent to use.</param>
+      <param name="acceptLanguage">Browser language to emulate.</param>
+      <param name="platform">The platform navigator.platform should return.</param>
+      <returns>A task for asynchronous command.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsEmulationExtensions.SetScriptExecutionDisabled(Aquality.Selenium.Browsers.DevToolsHandling,System.Boolean)">
+      <summary>
+        Switches script execution in the page.
+      </summary>
+      <param name="devTools">
+        Current instance of <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+      </param>
+      <param name="value">Whether script execution should be disabled in the page.</param>
+      <returns>A task for asynchronous command.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsEmulationExtensions.SetTouchEmulationEnabled(Aquality.Selenium.Browsers.DevToolsHandling,System.Boolean,System.Nullable{System.Int64})">
+      <summary>
+        Enables touch on platforms which do not support them.
+      </summary>
+      <param name="devTools">
+        Current instance of <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+      </param>
+      <param name="enabled">Whether the touch event emulation should be enabled.</param>
+      <param name="maxTouchPoints">Maximum touch points supported. Defaults to one.</param>
+      <returns>A task for asynchronous command.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsEmulationExtensions.SetTouchEmulationEnabled(Aquality.Selenium.Browsers.DevToolsHandling,OpenQA.Selenium.DevTools.ICommand)">
+      <summary>
+        Enables touch on platforms which do not support them.
+      </summary>
+      <param name="devTools">
+        Current instance of <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+      </param>
+      <param name="commandParameters">
+        Version-specific set of parameters.
+        For example, take a look at <see cref="T:OpenQA.Selenium.DevTools.V85.Emulation.SetTouchEmulationEnabledCommandSettings"/>.
+      </param>
+      <returns>A task for asynchronous command.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsEmulationExtensions.SetEmulatedMedia(Aquality.Selenium.Browsers.DevToolsHandling,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+      <summary>
+        Emulates the given media type or media feature for CSS media queries.
+      </summary>
+      <param name="devTools">
+        Current instance of <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+      </param>
+      <param name="media">
+        Media type to emulate. Empty string disables the override.
+        Possible values: braille, embossed, handheld, print, projection, screen, speech, tty, tv.
+      </param>
+      <param name="mediaFeatures">Media features to emulate.</param>
+      <returns>A task for asynchronous command.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsEmulationExtensions.SetEmulatedMedia(Aquality.Selenium.Browsers.DevToolsHandling,OpenQA.Selenium.DevTools.ICommand)">
+      <summary>
+        Emulates the given media type or media feature for CSS media queries.
+      </summary>
+      <param name="devTools">
+        Current instance of <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+      </param>
+      <param name="commandParameters">
+        Version-specific set of parameters.
+        For example, take a look at <see cref="T:OpenQA.Selenium.DevTools.V85.Emulation.SetEmulatedMediaCommandSettings"/>.
+      </param>
+      <returns>A task for asynchronous command.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsEmulationExtensions.DisableEmulatedMediaOverride(Aquality.Selenium.Browsers.DevToolsHandling)">
+      <summary>
+        Disables emulated media override.
+      </summary>
+      <param name="devTools">
+        Current instance of <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+      </param>
+      <returns>A task for asynchronous command.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsEmulationExtensions.SetDefaultBackgroundColorOverride(Aquality.Selenium.Browsers.DevToolsHandling,System.Int64,System.Int64,System.Int64,System.Nullable{System.Double})">
+      <summary>
+        Sets an override of the default background color of the frame. This override is used if the content does not specify one.
+      </summary>
+      <param name="devTools">
+        Current instance of <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+      </param>
+      <param name="red">The red component, in the [0-255] range.</param>
+      <param name="green">The green component, in the [0-255] range.</param>
+      <param name="blue">The blue component, in the [0-255] range.</param>
+      <param name="alpha">The alpha component, in the [0-1] range (default: 1).</param>
+      <returns>A task for asynchronous command.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsEmulationExtensions.ClearDefaultBackgroundColorOverride(Aquality.Selenium.Browsers.DevToolsHandling)">
+      <summary>
+        Clears an override of the default background color of the frame.
+      </summary>
+      <param name="devTools">
+        Current instance of <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+      </param>
+      <returns>A task for asynchronous command.</returns>
+    </member>
+    <member name="T:Aquality.Selenium.Browsers.DevToolsHandling">
+      <summary>
+        Wrapper for Selenium <see cref="T:OpenQA.Selenium.DevTools.IDevTools"/> functionality.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsHandling.#ctor(OpenQA.Selenium.DevTools.IDevTools)">
+      <summary>
+        Initializes an instance of <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+      </summary>
+      <param name="devToolsProvider">
+        Instance of <see cref="T:OpenQA.Selenium.WebDriver"/> which supports CDP Protocol.
+      </param>
+    </member>
+    <member name="P:Aquality.Selenium.Browsers.DevToolsHandling.HasActiveDevToolsSession">
+      <summary>
+        Gets a value indicating whether a DevTools session is active.
+        Because backing field is not set to null in Selenium <see cref="M:Aquality.Selenium.Browsers.DevToolsHandling.CloseDevToolsSession"/> implementations
+        <see cref="T:OpenQA.Selenium.Chromium.ChromiumDriver"/> and <see cref="T:OpenQA.Selenium.Firefox.FirefoxDriver"/>, we need to rework it with ours backing field.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsHandling.CloseDevToolsSession">
+      <summary>
+        Closes a DevTools session.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsHandling.GetDevToolsSession">
+      <summary>
+        Creates a session to communicate with a browser using the Chromium Developer Tools debugging protocol.
+        Calls overload <see cref="M:Aquality.Selenium.Browsers.DevToolsHandling.GetDevToolsSession(System.Int32)"/>, where parameter protocolVersion
+        defaults to autodetect the protocol version for Chromium, V85 for Firefox.
+      </summary>
+      <returns>The active session to use to communicate with the Chromium Developer Tools debugging protocol.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsHandling.GetDevToolsSession(System.Int32)">
+      <summary>
+        Creates a session to communicate with a browser using the Chromium Developer Tools debugging protocol.
+      </summary>
+      <param name="protocolVersion">
+        The version of the Chromium Developer Tools protocol to use.
+        Defaults to autodetect the protocol version for <see cref="T:OpenQA.Selenium.Chromium.ChromiumDriver"/>, V85 for FirefoxDriver.
+      </param>
+      <returns>The active session to use to communicate with the Chromium Developer Tools debugging protocol.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsHandling.ExecuteCdpCommand(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+      <summary>
+        Executes a custom Chromium Dev Tools Protocol Command.
+        Note: works only if current driver is instance of <see cref="T:OpenQA.Selenium.Chromium.ChromiumDriver"/>.
+      </summary>
+      <param name="commandName">Name of the command to execute.</param>
+      <param name="commandParameters">Parameters of the command to execute.</param>
+      <returns>An object representing the result of the command, if applicable.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsHandling.SendCommand(System.String,Newtonsoft.Json.Linq.JToken,System.Threading.CancellationToken,System.Nullable{System.Int32},System.Boolean)">
+      <summary>
+        Sends the specified command and returns the associated command response.
+      </summary>
+      <param name="commandName">The name of the command to send.</param>
+      <param name="commandParameters">The parameters of the command as a JToken object.</param>
+      <param name="cancellationToken">A CancellationToken object to allow for cancellation of the command.</param>
+      <param name="millisecondsTimeout">The execution timeout of the command in milliseconds.</param>
+      <param name="throwExceptionIfResponseNotReceived">
+        <see langword="true"/> to throw an exception if a response is not received; otherwise, <see langword="false"/>.
+      </param>
+      <returns>A JToken based on a command created with the specified command name and parameters.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsHandling.SendCommand(OpenQA.Selenium.DevTools.ICommand,System.Threading.CancellationToken,System.Nullable{System.Int32},System.Boolean)">
+      <summary>
+        Sends the specified command and returns the associated command response.
+      </summary>
+      <param name="commandWithParameters">The command to send with parameters.</param>
+      <param name="cancellationToken">A CancellationToken object to allow for cancellation of the command.</param>
+      <param name="millisecondsTimeout">The execution timeout of the command in milliseconds.</param>
+      <param name="throwExceptionIfResponseNotReceived">
+        <see langword="true"/> to throw an exception if a response is not received; otherwise, <see langword="false"/>.
+      </param>
+      <returns>A JToken based on a command created with the specified command name and parameters.</returns>
+    </member>
+    <member name="T:Aquality.Selenium.Browsers.DevToolsPerformanceExtensions">
+      <summary>
+        Implementation of version-independent performance DevTools commands as extensions for <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+        For more information, see <see href="https://chromedevtools.github.io/devtools-protocol/tot/Performance/"/>.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsPerformanceExtensions.DisablePerfomanceMonitoring(Aquality.Selenium.Browsers.DevToolsHandling)">
+      <summary>
+        Disable collecting and reporting metrics.
+      </summary>
+      <param name="devTools">
+        Current instance of <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+      </param>
+      <returns>A task for asynchronous command.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsPerformanceExtensions.EnablePerfomanceMonitoring(Aquality.Selenium.Browsers.DevToolsHandling,System.String)">
+      <summary>
+        Enable collecting and reporting metrics.
+      </summary>
+      <param name="devTools">
+        Current instance of <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+      </param>
+      <param name="timeDomain">
+        Time domain to use for collecting and reporting duration metrics.
+        Allowed Values: timeTicks, threadTicks.
+      </param>
+      <returns>A task for asynchronous command.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.DevToolsPerformanceExtensions.GetPerformanceMetrics(Aquality.Selenium.Browsers.DevToolsHandling)">
+      <summary>
+        Retrieve current values of run-time metrics.
+      </summary>
+      <param name="devTools">
+        Current instance of <see cref="T:Aquality.Selenium.Browsers.DevToolsHandling"/>.
+      </param>
+      <returns>A task for asynchronous command with current values for run-time metrics as result.</returns>
+    </member>
+    <member name="T:Aquality.Selenium.Browsers.IBrowserFactory">
+      <summary>
+        Factory that creates instance of desired Browser based on <see cref="T:Aquality.Selenium.Configurations.IBrowserProfile"/>.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Browsers.IBrowserFactory.Browser">
+      <summary>
+        Creates instance of Browser.
+      </summary>
+      <value>Instance of desired Browser.</value>
+    </member>
+    <member name="T:Aquality.Selenium.Browsers.IBrowserTabNavigation">
+      <summary>
+        Provides functionality to work with browser tab navigation.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Browsers.IBrowserTabNavigation.CurrentTabHandle">
+      <summary>
+        Gets current tab handle.
+      </summary>
+      <returns>Current tab handle.</returns>
+    </member>
+    <member name="P:Aquality.Selenium.Browsers.IBrowserTabNavigation.TabHandles">
+      <summary>
+        Gets opened tab handles.
+      </summary>
+      <returns>List of tab handles.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.IBrowserTabNavigation.SwitchToTab(System.String,System.Boolean)">
+      <summary>
+        Switches to tab.
+      </summary>
+      <param name="tabHandle">Tab handle.</param>
+      <param name="closeCurrent">Close current tab if true and leave it otherwise.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.IBrowserTabNavigation.SwitchToTab(System.Int32,System.Boolean)">
+      <summary>
+        Switches to tab.
+      </summary>
+      <param name="index">Tab index.</param>
+      <param name="closeCurrent">Close current tab if true and leave it otherwise.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.IBrowserTabNavigation.SwitchToLastTab(System.Boolean)">
+      <summary>
+        Switches to the last tab.
+      </summary>
+      <param name="closeCurrent">Close current tab if true and leave it otherwise.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.IBrowserTabNavigation.CloseTab">
+      <summary>
+        Closes current tab.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.IBrowserTabNavigation.OpenNewTab(System.Boolean)">
+      <summary>
+        Opens new tab.
+      </summary>
+      <param name="switchToNew">Switches to new tab if true and stays at current otherwise.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.IBrowserTabNavigation.OpenNewTabViaJs(System.Boolean)">
+      <summary>
+        Opens new tab using JS function.
+      </summary>
+      <param name="switchToNew">Switches to new tab if true and stays at current otherwise.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.IBrowserTabNavigation.OpenInNewTab(System.String)">
+      <summary>
+        Navigates to desired url in new tab.
+      </summary>
+      <param name="url">String representation of URL.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.IBrowserTabNavigation.OpenInNewTab(System.Uri)">
+      <summary>
+        Navigates to desired url in new tab.
+      </summary>
+      <param name="url">target URL.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.IBrowserTabNavigation.OpenInNewTabViaJs(System.String)">
+      <summary>
+        Navigates to desired url in new tab using JS function.
+      </summary>
+      <param name="url">String representation of URL.</param>
+    </member>
+    <member name="T:Aquality.Selenium.Browsers.JavaScript">
+      <summary>
+        Predefined JS scripts.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Browsers.JavaScriptExtensions">
+      <summary>
+        Extensions for <see cref="T:Aquality.Selenium.Browsers.JavaScript"/> enum.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.JavaScriptExtensions.GetScript(Aquality.Selenium.Browsers.JavaScript)">
+      <summary>
+        Gets string representation of JS script.
+      </summary>
+      <param name="javaScript">Desired JS script name.</param>
+      <returns>String representation of script.</returns>
+    </member>
+    <member name="T:Aquality.Selenium.Browsers.JavaScriptHandling">
+      <summary>
+        Wrap over implementation of Selenium WebDriver IJavaScriptEngine.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.JavaScriptHandling.#ctor(OpenQA.Selenium.IWebDriver)">
+      <summary>
+        Initializes a new instance of the <see cref="T:Aquality.Selenium.Browsers.JavaScriptHandling"/> class.
+      </summary>
+      <param name="driver">
+        The <see cref="T:OpenQA.Selenium.IWebDriver"/> instance on which the JavaScript events should be monitored.
+      </param>
+    </member>
+    <member name="P:Aquality.Selenium.Browsers.JavaScriptHandling.InitializationScripts">
+      <summary>
+        Gets the read-only list of initialization scripts added for this JavaScript engine.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Browsers.JavaScriptHandling.ScriptCallbackBindings">
+      <summary>
+        Gets the read-only list of binding callbacks added for this JavaScript engine.
+        Note: Selenium functionality here is broken,
+        no value added to this list in <see cref="M:OpenQA.Selenium.JavaScriptEngine.AddScriptCallbackBinding(System.String)"/>, so we store these values in read-only field.
+      </summary>
+    </member>
+    <member name="E:Aquality.Selenium.Browsers.JavaScriptHandling.JavaScriptCallbackExecuted">
+      <summary>
+        Occurs when a JavaScript callback with a named binding is executed.
+      </summary>
+    </member>
+    <member name="E:Aquality.Selenium.Browsers.JavaScriptHandling.JavaScriptExceptionThrown">
+      <summary>
+        Occurs when an exception is thrown by JavaScript being executed in the browser.
+      </summary>
+    </member>
+    <member name="E:Aquality.Selenium.Browsers.JavaScriptHandling.JavaScriptConsoleApiCalled">
+      <summary>
+        Occurs when methods on the JavaScript console are called.
+      </summary>
+    </member>
+    <member name="E:Aquality.Selenium.Browsers.JavaScriptHandling.DomMutated">
+      <summary>
+        Occurs when a value of an attribute in an element is being changed.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.JavaScriptHandling.AddInitializationScript(System.String,System.String)">
+      <summary>
+        Asynchronously adds JavaScript to be loaded on every document load.
+      </summary>
+      <param name="scriptName">The friendly name by which to refer to this initialization script.</param>
+      <param name="script">The JavaScript to be loaded on every page.</param>
+      <returns>
+        A task containing an <see cref="T:OpenQA.Selenium.InitializationScript"/> object representing the script to be loaded on each page.
+      </returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.JavaScriptHandling.RemoveInitializationScript(System.String)">
+      <summary>
+        Asynchronously removes JavaScript from being loaded on every document load.
+      </summary>
+      <param name="scriptName">The friendly name of the initialization script to be removed.</param>
+      <returns>A task that represents the asynchronous operation.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.JavaScriptHandling.ClearInitializationScripts">
+      <summary>
+        Asynchronously removes all initialization scripts from being
+        loaded on every document load.
+      </summary>
+      <returns>A task that represents the asynchronous operation.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.JavaScriptHandling.AddScriptCallbackBinding(System.String)">
+      <summary>
+        Asynchronously adds a binding to a callback method that will raise
+        an event when the named binding is called by JavaScript executing
+        in the browser.
+      </summary>
+      <param name="bindingName">The name of the callback that will trigger events when called by JavaScript executing in the browser.</param>
+      <returns>A task that represents the asynchronous operation.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.JavaScriptHandling.RemoveScriptCallbackBinding(System.String)">
+      <summary>
+        Asynchronously removes a binding to a JavaScript callback.
+      </summary>
+      <param name="bindingName">The name of the callback to be removed.</param>
+      <returns>A task that represents the asynchronous operation.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.JavaScriptHandling.ClearScriptCallbackBindings">
+      <summary>
+        Asynchronously removes all bindings to JavaScript callbacks.
+      </summary>
+      <returns>A task that represents the asynchronous operation.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.JavaScriptHandling.EnableDomMutationMonitoring">
+      <summary>
+        Enables monitoring for DOM changes.
+      </summary>
+      <returns>A task that represents the asynchronous operation.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.JavaScriptHandling.DisableDomMutationMonitoring">
+      <summary>
+        Disables monitoring for DOM changes.
+      </summary>
+      <returns>A task that represents the asynchronous operation.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.JavaScriptHandling.PinScript(System.String)">
+      <summary>
+        Pins a JavaScript snippet for execution in the browser without transmitting the
+        entire script across the wire for every execution.
+      </summary>
+      <param name="script">The JavaScript to pin</param>
+      <returns>
+        A task containing a <see cref="T:OpenQA.Selenium.PinnedScript"/> object to use to execute the script.
+      </returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.JavaScriptHandling.UnpinScript(OpenQA.Selenium.PinnedScript)">
+      <summary>
+        Unpins a previously pinned script from the browser.
+      </summary>
+      <param name="script">
+        The <see cref="T:OpenQA.Selenium.PinnedScript"/> object to unpin.
+      </param>
+      <returns>A task that represents the asynchronous operation.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.JavaScriptHandling.StartEventMonitoring">
+      <summary>
+        Asynchronously starts monitoring for events from the browser's JavaScript engine.
+      </summary>
+      <returns>A task that represents the asynchronous operation.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.JavaScriptHandling.StopEventMonitoring">
+      <summary>
+        Stops monitoring for events from the browser's JavaScript engine.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.JavaScriptHandling.ClearAll">
+      <summary>
+        Asynchronously removes all bindings to JavaScript callbacks and all
+        initialization scripts from being loaded for each document.
+      </summary>
+      <returns>A task that represents the asynchronous operation.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.JavaScriptHandling.Reset">
+      <summary>
+        Asynchronously removes all bindings to JavaScript callbacks, all
+        initialization scripts from being loaded for each document, and
+        stops listening for events.
+      </summary>
+      <returns>A task that represents the asynchronous operation.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.JavaScriptHandling.Dispose">
+      <summary>
+        Performs application-defined tasks associated with freeing, releasing,
+        or resetting unmanaged resources.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Browsers.LocalBrowserFactory">
+      <summary>
+        Factory that creates instance of local Browser.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Browsers.NetworkHandling">
+      <summary>
+        Wrap over implementation of Selenium WebDriver INetwork.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.NetworkHandling.#ctor(OpenQA.Selenium.IWebDriver)">
+      <summary>
+        Initializes a new instance of the <see cref="T:Aquality.Selenium.Browsers.NetworkHandling"/> class.
+      </summary>
+      <param name="driver">
+        The <see cref="T:OpenQA.Selenium.IWebDriver"/> instance on which the network should be monitored.
+      </param>
+    </member>
+    <member name="E:Aquality.Selenium.Browsers.NetworkHandling.NetworkRequestSent">
+      <summary>
+        A network request sent event.
+      </summary>
+    </member>
+    <member name="E:Aquality.Selenium.Browsers.NetworkHandling.NetworkResponseReceived">
+      <summary>
+        A network response received event.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.NetworkHandling.AddAuthenticationHandler(OpenQA.Selenium.NetworkAuthenticationHandler)">
+      <summary>
+        Add basic authentication handler.
+      </summary>
+      <param name="handler">Authentication parameters, such as URI matcher and credentials.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.NetworkHandling.AddRequestHandler(OpenQA.Selenium.NetworkRequestHandler)">
+      <summary>
+        Add request handler.
+      </summary>
+      <param name="handler">Handler parameters: request matcher, request transformer and response supplier.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.NetworkHandling.AddResponseHandler(OpenQA.Selenium.NetworkResponseHandler)">
+      <summary>
+        Add response handler.
+      </summary>
+      <param name="handler">Handler parameters: response matcher and transformer.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.NetworkHandling.ClearAuthenticationHandlers">
+      <summary>
+        Clear basic authentication handlers.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.NetworkHandling.ClearRequestHandlers">
+      <summary>
+        Clear request handlers.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.NetworkHandling.ClearResponseHandlers">
+      <summary>
+        Clear response handlers.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.NetworkHandling.StartMonitoring">
+      <summary>
+        Awaits to start network monitoring.
+      </summary>
+      <returns>A task to be awaited.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.NetworkHandling.StopMonitoring">
+      <summary>
+        Awaits to stop network monitoring.
+      </summary>
+      <returns>A task to be awaited.</returns>
+    </member>
+    <member name="T:Aquality.Selenium.Browsers.PinnedScriptExtensions">
+      <summary>
+        Extensions for scripts pinned with <see cref="P:Aquality.Selenium.Browsers.Browser.JavaScriptEngine"/>.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.PinnedScriptExtensions.ExecuteScript(OpenQA.Selenium.PinnedScript,System.Object[])">
+      <summary>
+        Executes pinned JS script.
+      </summary>
+      <param name="pinnedScript">
+        Instance of script pinned with <see cref="P:Aquality.Selenium.Browsers.Browser.JavaScriptEngine"/>.
+      </param>
+      <param name="arguments">Script arguments.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.PinnedScriptExtensions.ExecuteScript(OpenQA.Selenium.PinnedScript,Aquality.Selenium.Elements.Interfaces.IElement,System.Object[])">
+      <summary>
+        Executes pinned JS script against the element.
+      </summary>
+      <param name="pinnedScript">
+        Instance of script pinned with <see cref="P:Aquality.Selenium.Browsers.Browser.JavaScriptEngine"/>.
+      </param>
+      <param name="element">
+        Instance of element created with <see cref="P:Aquality.Selenium.Forms.Form.ElementFactory"/>.
+      </param>
+      <param name="arguments">Script arguments.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.PinnedScriptExtensions.ExecuteScript``1(OpenQA.Selenium.PinnedScript,Aquality.Selenium.Elements.Interfaces.IElement,System.Object[])">
+      <summary>
+        Executes pinned JS script against the element and gets result value.
+      </summary>
+      <param name="pinnedScript">
+        Instance of script pinned with <see cref="P:Aquality.Selenium.Browsers.Browser.JavaScriptEngine"/>.
+      </param>
+      <param name="element">
+        Instance of element created with <see cref="P:Aquality.Selenium.Forms.Form.ElementFactory"/>.
+      </param>
+      <param name="arguments">Script arguments.</param>
+      <typeparam name="T">Type of return value.</typeparam>
+      <returns>Script execution result.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Browsers.PinnedScriptExtensions.ExecuteScript``1(OpenQA.Selenium.PinnedScript,System.Object[])">
+      <summary>
+        Executes pinned JS script and gets result value.
+      </summary>
+      <param name="pinnedScript">
+        Instance of script pinned with <see cref="P:Aquality.Selenium.Browsers.Browser.JavaScriptEngine"/>.
+      </param>
+      <param name="arguments">Script arguments.</param>
+      <typeparam name="T">Type of return value.</typeparam>
+      <returns>Script execution result.</returns>
+    </member>
+    <member name="T:Aquality.Selenium.Browsers.RemoteBrowserFactory">
+      <summary>
+        Factory that creates instance of remote Browser.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Configurations.BrowserProfile">
+      <summary>
+        Provides target browser profile.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Configurations.BrowserProfile.#ctor(Aquality.Selenium.Core.Configurations.ISettingsFile)">
+      <summary>
+        Instantiates class using JSON file with general settings.
+      </summary>
+      <param name="settingsFile">JSON settings file.</param>
+    </member>
+    <member name="T:Aquality.Selenium.Configurations.IBrowserProfile">
+      <summary>
+        Describes browser settings.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Configurations.IBrowserProfile.BrowserName">
+      <summary>
+        Gets name of target browser.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Configurations.IBrowserProfile.IsRemote">
+      <summary>
+        Is remote browser or not: true if remote browser and false if local.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Configurations.IBrowserProfile.RemoteConnectionUrl">
+      <summary>
+        Gets remote connection URI is case of remote browser.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Configurations.IBrowserProfile.IsElementHighlightEnabled">
+      <summary>
+        Is element hightlight enabled or not: true if element highlight is enabled and false otherwise
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Configurations.IBrowserProfile.DriverSettings">
+      <summary>
+        Gets driver settings for target browser.
+      </summary>
+      <exception cref="T:System.InvalidOperationException">Thrown when there is no assigned behaviour for retrieving DriverSettings for target browser.</exception>
+    </member>
+    <member name="T:Aquality.Selenium.Configurations.ITimeoutConfiguration">
+      <summary>
+        Describes timeouts configuration.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Configurations.ITimeoutConfiguration.Script">
+      <summary>
+        Gets WedDriver AsynchronousJavaScript timeout.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Configurations.ITimeoutConfiguration.PageLoad">
+      <summary>
+        Gets WedDriver PageLoad timeout.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Configurations.TimeoutConfiguration">
+      <summary>
+        Provides timeouts configuration.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Configurations.TimeoutConfiguration.#ctor(Aquality.Selenium.Core.Configurations.ISettingsFile)">
+      <summary>
+        Instantiates class using JSON file with general settings.
+      </summary>
+      <param name="settingsFile">JSON settings file.</param>
+    </member>
+    <member name="T:Aquality.Selenium.Configurations.WebDriverSettings.ChromeSettings">
+      <summary>
+        Settings specific for Chrome web driver.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Configurations.WebDriverSettings.ChromeSettings.#ctor(Aquality.Selenium.Core.Configurations.ISettingsFile)">
+      <summary>
+        Instantiates class using JSON file with general settings.
+      </summary>
+      <param name="settingsFile">JSON settings file.</param>
+    </member>
+    <member name="T:Aquality.Selenium.Configurations.WebDriverSettings.DriverSettings">
+      <summary>
+        Abstract representation of web driver settings.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Configurations.WebDriverSettings.DriverSettings.#ctor(Aquality.Selenium.Core.Configurations.ISettingsFile)">
+      <summary>
+        Instantiates class using JSON file with general settings.
+      </summary>
+      <param name="settingsFile">JSON settings file.</param>
+    </member>
+    <member name="T:Aquality.Selenium.Configurations.WebDriverSettings.EdgeSettings">
+      <summary>
+        Settings specific for Edge (chromium) web driver.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Configurations.WebDriverSettings.EdgeSettings.#ctor(Aquality.Selenium.Core.Configurations.ISettingsFile)">
+      <summary>
+        Instantiates class using JSON file with general settings.
+      </summary>
+      <param name="settingsFile">JSON settings file.</param>
+    </member>
+    <member name="T:Aquality.Selenium.Configurations.WebDriverSettings.FirefoxSettings">
+      <summary>
+        Settings specific for Firefox web driver.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Configurations.WebDriverSettings.FirefoxSettings.#ctor(Aquality.Selenium.Core.Configurations.ISettingsFile)">
+      <summary>
+        Instantiates class using file with general settings.
+      </summary>
+      <param name="settingsFile">Settings file.</param>
+    </member>
+    <member name="T:Aquality.Selenium.Configurations.WebDriverSettings.IDriverSettings">
+      <summary>
+        Describes web driver settings.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Configurations.WebDriverSettings.IDriverSettings.WebDriverVersion">
+      <summary>
+        Gets version of web driver for WebDriverManager.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Configurations.WebDriverSettings.IDriverSettings.SystemArchitecture">
+      <summary>
+        Gets target system architecture for WebDriverManager.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Configurations.WebDriverSettings.IDriverSettings.DriverOptions">
+      <summary>
+        Gets desired options for web driver.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Configurations.WebDriverSettings.IDriverSettings.PageLoadStrategy">
+      <summary>
+        WebDriver page load strategy.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Configurations.WebDriverSettings.IDriverSettings.DownloadDir">
+      <summary>
+        Gets download directory for web driver.
+      </summary>
+      <exception cref="T:System.InvalidOperationException">Thrown when browser settings do not contain capability key.</exception>
+    </member>
+    <member name="P:Aquality.Selenium.Configurations.WebDriverSettings.IDriverSettings.DownloadDirCapabilityKey">
+      <summary>
+        Gets web driver capability key for download directory.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Configurations.WebDriverSettings.InternetExplorerSettings">
+      <summary>
+        Settings specific for InternetExplorer web driver.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Configurations.WebDriverSettings.InternetExplorerSettings.#ctor(Aquality.Selenium.Core.Configurations.ISettingsFile)">
+      <summary>
+        Instantiates class using file with general settings.
+      </summary>
+      <param name="settingsFile">Settings file.</param>
+    </member>
+    <member name="T:Aquality.Selenium.Configurations.WebDriverSettings.OperaSettings">
+      <summary>
+        Settings specific for Opera web driver.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Configurations.WebDriverSettings.OperaSettings.#ctor(Aquality.Selenium.Core.Configurations.ISettingsFile)">
+      <summary>
+        Instantiates class using JSON file with general settings.
+      </summary>
+      <param name="settingsFile">JSON settings file.</param>
+    </member>
+    <member name="T:Aquality.Selenium.Configurations.WebDriverSettings.SafariSettings">
+      <summary>
+        Settings specific for Safari web driver.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Configurations.WebDriverSettings.SafariSettings.#ctor(Aquality.Selenium.Core.Configurations.ISettingsFile)">
+      <summary>
+        Instantiates class using file with general settings.
+      </summary>
+      <param name="settingsFile">Settings file.</param>
+    </member>
+    <member name="T:Aquality.Selenium.Configurations.WebDriverSettings.YandexSettings">
+      <summary>
+        Settings specific for Yandex web driver.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Configurations.WebDriverSettings.YandexSettings.#ctor(Aquality.Selenium.Core.Configurations.ISettingsFile)">
+      <summary>
+        Instantiates class using JSON file with general settings.
+      </summary>
+      <param name="settingsFile">JSON settings file.</param>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.Actions.CheckBoxJsActions">
+      <summary>
+        Allows to perform actions on elements via JavaScript specific for CheckBoxes.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.CheckBoxJsActions.IsChecked">
+      <summary>
+        Gets CheckBox state.
+      </summary>
+      <returns>True if checked and false otherwise</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.CheckBoxJsActions.Check">
+      <summary>
+        Performs check action on the element.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.CheckBoxJsActions.Uncheck">
+      <summary>
+        Performs uncheck action on the element.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.CheckBoxJsActions.Toggle">
+      <summary>
+        Performs toggle action on the element.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.Actions.ComboBoxJsActions">
+      <summary>
+        Allows to perform actions on elements via JavaScript specific for ComboBoxes.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.ComboBoxJsActions.GetTexts">
+      <summary>
+        Gets texts of options from ComboBox.
+      </summary>
+      <returns>List of options' texts</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.ComboBoxJsActions.GetSelectedText">
+      <summary>
+        Gets text of selected option.
+      </summary>
+      <returns>Selected option text.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.ComboBoxJsActions.SelectValueByText(System.String)">
+      <summary>
+        Select value by option's text.
+      </summary>
+      <param name="text">Target option.</param>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.Actions.JsActions">
+      <summary>
+        Allows to perform actions on elements via JavaScript.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.JsActions.ExpandShadowRoot">
+      <summary>
+        Expands shadow root.
+      </summary>
+      <returns>
+        <see cref="T:OpenQA.Selenium.ShadowRoot"/> search context.
+      </returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.JsActions.FindElementInShadowRoot``1(OpenQA.Selenium.By,System.String,Aquality.Selenium.Core.Elements.ElementSupplier{``0},Aquality.Selenium.Core.Elements.ElementState)">
+      <summary>
+        Finds element in the shadow root of the current element.
+      </summary>
+      <typeparam name="T">
+        Type of the target element that has to implement <see cref="T:Aquality.Selenium.Elements.Interfaces.IElement"/>.
+      </typeparam>
+      <param name="locator">
+        Locator of the target element.
+        Note that some browsers don't support XPath locator for shadow elements (e.g. Chrome).
+      </param>
+      <param name="name">Name of the target element.</param>
+      <param name="supplier">Delegate that defines constructor of element.</param>
+      <param name="state">State of the target element.</param>
+      <returns>Instance of element.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.JsActions.ClickAndWait">
+      <summary>
+        Perfroms click on element and waits for page is loaded.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.JsActions.Click">
+      <summary>
+        Performs click on element.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.JsActions.HighlightElement(Aquality.Selenium.Elements.HighlightState)">
+      <summary>
+        Highlights the element.
+        Default value is from configuration: <see cref="P:Aquality.Selenium.Configurations.IBrowserProfile.IsElementHighlightEnabled"/>
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.JsActions.ScrollIntoView">
+      <summary>
+        Scrolling page to the element.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.JsActions.ScrollBy(System.Int32,System.Int32)">
+      <summary>
+        Scrolling element by coordinates.
+      </summary>
+      <remarks>Element have to contains inner scroll bar.</remarks>
+      <param name="x">Horizontal coordinate</param>
+      <param name="y">Vertical coordinate</param>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.JsActions.ScrollToTheCenter">
+      <summary>
+        Scrolling to the center of element.
+        Upper bound of element will be in the center of the page after scrolling
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.JsActions.SetValue(System.String)">
+      <summary>
+        Setting value.
+      </summary>
+      <param name="value">Value to set</param>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.JsActions.SetFocus">
+      <summary>
+        Set focus on element.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.JsActions.SetAttribute(System.String,System.String)">
+      <summary>
+        Setting attribute value.
+      </summary>
+      <param name="name">Attribute name</param>
+      <param name="value">Value to set</param>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.JsActions.IsElementOnScreen">
+      <summary>
+        Checks whether element on screen or not.
+      </summary>
+      <returns>True if element is on screen and false otherwise.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.JsActions.GetElementText">
+      <summary>
+        Get text from element.
+      </summary>
+      <returns>Text from element</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.JsActions.HoverMouse">
+      <summary>
+        Hover mouse over element.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.JsActions.GetXPath">
+      <summary>
+        Get element's XPath.
+      </summary>
+      <returns>String representation of element's XPath locator.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.JsActions.GetViewPortCoordinates">
+      <summary>
+        Gets element coordinates relative to the View Port.
+      </summary>
+      <returns>Point object.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.JsActions.ExecuteScript``1(OpenQA.Selenium.PinnedScript,System.Object[])">
+      <summary>
+        Executed pinned script against element.
+      </summary>
+      <param name="pinnedScript">
+        Instance of script pinned with <see cref="P:Aquality.Selenium.Browsers.Browser.JavaScriptEngine"/>.
+      </param>
+      <param name="arguments">Script arguments.</param>
+      <typeparam name="T">Type of return value.</typeparam>
+      <returns>Script execution result.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.JsActions.ExecuteScript(OpenQA.Selenium.PinnedScript,System.Object[])">
+      <summary>
+        Executed pinned script against element.
+      </summary>
+      <param name="pinnedScript">
+        Instance of script pinned with <see cref="P:Aquality.Selenium.Browsers.Browser.JavaScriptEngine"/>.
+      </param>
+      <param name="arguments">Script arguments.</param>
+      <returns>Script execution result.</returns>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.Actions.MouseActions">
+      <summary>
+        Allows to perform actions on elements via Selenium Actions class.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.MouseActions.Click">
+      <summary>
+        Performs click on element.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.MouseActions.DoubleClick">
+      <summary>
+        Performs double click on element.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.MouseActions.RightClick">
+      <summary>
+        Perfroms right click on element.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.MouseActions.MoveToElement">
+      <summary>
+        Moves mouse to the element.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Actions.MouseActions.MoveMouseFromElement">
+      <summary>
+        Moves mouse from this element.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.Actions.Key">
+      <summary>
+        Represents action keys which could be used to <see cref="M:Aquality.Selenium.Elements.Interfaces.IElement.SendKey(Aquality.Selenium.Elements.Actions.Key)"/>.
+        Used to enhance logging of SendKeys actions
+        Directly related to <see cref="T:OpenQA.Selenium.Keys"/>
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Null">
+      <summary>
+        Represents the NUL keystroke.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.NumberPad0">
+      <summary>
+        Represents the number pad 0 key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.NumberPad1">
+      <summary>
+        Represents the number pad 1 key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.NumberPad2">
+      <summary>
+        Represents the number pad 2 key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.NumberPad3">
+      <summary>
+        Represents the number pad 3 key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.NumberPad4">
+      <summary>
+        Represents the number pad 4 key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.NumberPad5">
+      <summary>
+        Represents the number pad 5 key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.NumberPad6">
+      <summary>
+        Represents the number pad 6 key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.NumberPad7">
+      <summary>
+        Represents the number pad 7 key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.NumberPad8">
+      <summary>
+        Represents the number pad 8 key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.NumberPad9">
+      <summary>
+        Represents the number pad 9 key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Multiply">
+      <summary>
+        Represents the number pad multiplication key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Add">
+      <summary>
+        Represents the number pad addition key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Separator">
+      <summary>
+        Represents the number pad thousands separator key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Equal">
+      <summary>
+        Represents the equal sign key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Subtract">
+      <summary>
+        Represents the number pad subtraction key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Divide">
+      <summary>
+        Represents the number pad division key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.F1">
+      <summary>
+        Represents the function key F1.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.F2">
+      <summary>
+        Represents the function key F2.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.F3">
+      <summary>
+        Represents the function key F3.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.F4">
+      <summary>
+        Represents the function key F4.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.F5">
+      <summary>
+        Represents the function key F5.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.F6">
+      <summary>
+        Represents the function key F6.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.F7">
+      <summary>
+        Represents the function key F7.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.F8">
+      <summary>
+        Represents the function key F8.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.F9">
+      <summary>
+        Represents the function key F9.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.F10">
+      <summary>
+        Represents the function key F10.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.F11">
+      <summary>
+        Represents the function key F11.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.F12">
+      <summary>
+        Represents the function key F12.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Decimal">
+      <summary>
+        Represents the number pad decimal separator key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Meta">
+      <summary>
+        Represents the function key META.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Semicolon">
+      <summary>
+        Represents the semi-colon key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Insert">
+      <summary>
+        Represents the Insert key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Cancel">
+      <summary>
+        Represents the Cancel keystroke.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Help">
+      <summary>
+        Represents the Help keystroke.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Backspace">
+      <summary>
+        Represents the Backspace key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Tab">
+      <summary>
+        Represents the Tab key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Clear">
+      <summary>
+        Represents the Clear keystroke.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Return">
+      <summary>
+        Represents the Return key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Enter">
+      <summary>
+        Represents the Enter key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Shift">
+      <summary>
+        Represents the Shift key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.LeftShift">
+      <summary>
+        Represents the Shift key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Control">
+      <summary>
+        Represents the Control key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.LeftControl">
+      <summary>
+        Represents the Control key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Alt">
+      <summary>
+        Represents the Alt key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.LeftAlt">
+      <summary>
+        Represents the Alt key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Delete">
+      <summary>
+        Represents the Delete key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Pause">
+      <summary>
+        Represents the Pause key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Space">
+      <summary>
+        Represents the Spacebar key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.PageUp">
+      <summary>
+        Represents the Page Up key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.PageDown">
+      <summary>
+        Represents the Page Down key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.End">
+      <summary>
+        Represents the End key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Home">
+      <summary>
+        Represents the Home key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Left">
+      <summary>
+        Represents the left arrow key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.ArrowLeft">
+      <summary>
+        Represents the left arrow key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Up">
+      <summary>
+        Represents the up arrow key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.ArrowUp">
+      <summary>
+        Represents the up arrow key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Right">
+      <summary>
+        Represents the right arrow key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.ArrowRight">
+      <summary>
+        Represents the right arrow key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Down">
+      <summary>
+        Represents the Left arrow key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.ArrowDown">
+      <summary>
+        Represents the Left arrow key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Escape">
+      <summary>
+        Represents the Escape key.
+      </summary>
+    </member>
+    <member name="F:Aquality.Selenium.Elements.Actions.Key.Command">
+      <summary>
+        Represents the function key COMMAND.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.Button">
+      <summary>
+        Defines Button UI element.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.CheckBox">
+      <summary>
+        Defines CheckBox UI element.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.ComboBox">
+      <summary>
+        Defines ComboBox UI element.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.Element">
+      <summary>
+        Defines base class for any UI element.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.ElementFactory">
+      <summary>
+        Factory that creates elements.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Elements.ElementFactory.ElementTypesMap">
+      <summary>
+        Gets map between elements interfaces and their implementations.
+        Can be extended for custom elements with custom interfaces.
+      </summary>
+      <returns>Dictionary where key is interface and value is its implementation.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.ElementFactory.GenerateXpathLocator(OpenQA.Selenium.By,OpenQA.Selenium.IWebElement,System.Int32)">
+      <summary>
+        Generates xpath locator for target element
+      </summary>
+      <param name="baseLocator">locator of parent element</param>
+      <param name="webElement">target element</param>
+      <param name="elementIndex">index of target element</param>
+      <returns>target element's locator</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.ElementFactory.IsLocatorSupportedForXPathExtraction(OpenQA.Selenium.By)">
+      <summary>
+        Defines is the locator can be transformed to xpath or not.
+        Current implementation works only with ByXPath.class and ByTagName locator types,
+        but you can implement your own for the specific WebDriver type.
+      </summary>
+      <param name="locator">locator to transform</param>
+      <returns>true if the locator can be transformed to xpath, false otherwise.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.ElementFactory.ExtractXPathFromLocator(OpenQA.Selenium.By)">
+      <summary>
+        Extracts XPath from passed locator.
+        Current implementation works only with ByXPath.class and ByTagName locator types,
+        but you can implement your own for the specific WebDriver type.
+      </summary>
+      <param name="locator">locator to get xpath from.</param>
+      <returns>extracted XPath.</returns>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.HighlightState">
+      <summary>
+        Possible element hightlight states (on/off).
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.Interfaces.IButton">
+      <summary>
+        Describes behavior of Button UI element.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.Interfaces.ICheckBox">
+      <summary>
+        Describes behavior of CheckBox UI element.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Elements.Interfaces.ICheckBox.JsActions">
+      <summary>
+        Gets CheckBox specific JavaScript actions.
+      </summary>
+      <value>
+        Instance of <see cref="T:Aquality.Selenium.Elements.Actions.CheckBoxJsActions"/>
+      </value>
+    </member>
+    <member name="P:Aquality.Selenium.Elements.Interfaces.ICheckBox.IsChecked">
+      <summary>
+        Gets CheckBox state: True if checked and false otherwise.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.ICheckBox.Check">
+      <summary>
+        Performs check action on the element.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.ICheckBox.Uncheck">
+      <summary>
+        Performs uncheck action on the element.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.ICheckBox.Toggle">
+      <summary>
+        Performs toggle action on the element.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.Interfaces.IComboBox">
+      <summary>
+        Describes behavior of ComboBox UI element.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Elements.Interfaces.IComboBox.JsActions">
+      <summary>
+        Gets ComboBox specific JavaScript actions.
+      </summary>
+      <value>
+        Instance of <see cref="T:Aquality.Selenium.Elements.Actions.ComboBoxJsActions"/>
+      </value>
+    </member>
+    <member name="P:Aquality.Selenium.Elements.Interfaces.IComboBox.SelectedValue">
+      <summary>
+        Gets value of selected option.
+      </summary>
+      <value>Value representation of selected option.</value>
+    </member>
+    <member name="P:Aquality.Selenium.Elements.Interfaces.IComboBox.SelectedText">
+      <summary>
+        Gets text of selected option.
+      </summary>
+      <value>Text representation of selected option.</value>
+    </member>
+    <member name="P:Aquality.Selenium.Elements.Interfaces.IComboBox.Texts">
+      <summary>
+        Gets list of text of available options.
+      </summary>
+      <value>List of text of available options.</value>
+    </member>
+    <member name="P:Aquality.Selenium.Elements.Interfaces.IComboBox.Values">
+      <summary>
+        Gets list of available values.
+      </summary>
+      <value>List of available values.</value>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IComboBox.SelectByIndex(System.Int32)">
+      <summary>
+        Selects option by its index in the list.
+      </summary>
+      <param name="index">Index of option in the list.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IComboBox.SelectByText(System.String)">
+      <summary>
+        Selects option by its text.
+      </summary>
+      <param name="text">Text of option.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IComboBox.SelectByValue(System.String)">
+      <summary>
+        Selects option by its value.
+      </summary>
+      <param name="value">Value of option.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IComboBox.SelectByContainingText(System.String)">
+      <summary>
+        Selects option by partial text.
+      </summary>
+      <param name="text">Partial text of option.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IComboBox.SelectByContainingValue(System.String)">
+      <summary>
+        Selects option by partial value.
+      </summary>
+      <param name="value">Partial value of option.</param>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.Interfaces.IElement">
+      <summary>
+        Describes behavior of any UI element.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Elements.Interfaces.IElement.JsActions">
+      <summary>
+        Gets JavaScript actions that can be performed with an element.
+      </summary>
+      <value>
+        Instance of <see cref="T:Aquality.Selenium.Elements.Actions.JsActions"/>
+      </value>
+    </member>
+    <member name="P:Aquality.Selenium.Elements.Interfaces.IElement.MouseActions">
+      <summary>
+        Gets Mouse actions that can be performed with an element.
+      </summary>
+      <value>
+        Instance of <see cref="T:Aquality.Selenium.Elements.Actions.MouseActions"/>
+      </value>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IElement.GetText(Aquality.Selenium.Elements.HighlightState)">
+      <summary>
+        Gets element text.
+      </summary>
+      <param name="highlightState">
+        Should the element be highlighted or not.
+        Default value is from configuration: <seealso cref="P:Aquality.Selenium.Configurations.IBrowserProfile.IsElementHighlightEnabled"/>
+      </param>
+      <returns>String representation of element text.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IElement.GetAttribute(System.String,Aquality.Selenium.Elements.HighlightState)">
+      <summary>
+        Gets element attribute value by its name.
+      </summary>
+      <param name="attr">Name of attribute</param>
+      <param name="highlightState">
+        Should the element be highlighted or not.
+        Default value is from configuration: <seealso cref="P:Aquality.Selenium.Configurations.IBrowserProfile.IsElementHighlightEnabled"/>
+      </param>
+      <returns>Value of element attribute.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IElement.GetCssValue(System.String,Aquality.Selenium.Elements.HighlightState)">
+      <summary>
+        Gets css value of the element.
+      </summary>
+      <param name="propertyName">Name of css property</param>
+      <param name="highlightState">
+        Should the element be highlighted or not.
+        Default value is from configuration: <seealso cref="P:Aquality.Selenium.Configurations.IBrowserProfile.IsElementHighlightEnabled"/>
+      </param>
+      <returns>Value of element attribute.</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IElement.ClickAndWait">
+      <summary>
+        Clicks the element and waits for page to load.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IElement.WaitAndClick">
+      <summary>
+        Waits for page to load and click the element.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IElement.Focus">
+      <summary>
+        Set focus on element.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IElement.SetInnerHtml(System.String)">
+      <summary>
+        Sets element inner HTML.
+      </summary>
+      <param name="value">Value to set.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IElement.SendKey(Aquality.Selenium.Elements.Actions.Key)">
+      <summary>
+        Send key.
+      </summary>
+      <param name="key"> Key for sending.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IElement.ExpandShadowRoot">
+      <summary>
+        Expands shadow root.
+      </summary>
+      <returns>
+        <see cref="T:OpenQA.Selenium.ShadowRoot"/> search context.
+      </returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IElement.FindElementInShadowRoot``1(OpenQA.Selenium.By,System.String,Aquality.Selenium.Core.Elements.ElementSupplier{``0},Aquality.Selenium.Core.Elements.ElementState)">
+      <summary>
+        Finds element in the shadow root of the current element.
+      </summary>
+      <typeparam name="T">
+        Type of the target element that has to implement <see cref="T:Aquality.Selenium.Elements.Interfaces.IElement"/>.
+      </typeparam>
+      <param name="locator">
+        Locator of the target element.
+        Note that some browsers don't support XPath locator for shadow elements.
+      </param>
+      <param name="name">Name of the target element.</param>
+      <param name="supplier">Delegate that defines constructor of element.</param>
+      <param name="state">State of the target element.</param>
+      <returns>Instance of element.</returns>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.Interfaces.IElementFactory">
+      <summary>
+        Defines the interface used to create the elements.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IElementFactory.GetButton(OpenQA.Selenium.By,System.String,Aquality.Selenium.Core.Elements.ElementState)">
+      <summary>
+        Creates element that implements IButton interface.
+      </summary>
+      <param name="locator">Element locator</param>
+      <param name="name">Element name</param>
+      <param name="state">Element state</param>
+      <returns>Instance of element that implements IButton interface</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IElementFactory.GetCheckBox(OpenQA.Selenium.By,System.String,Aquality.Selenium.Core.Elements.ElementState)">
+      <summary>
+        Creates element that implements ICheckBox interface.
+      </summary>
+      <param name="locator">Element locator</param>
+      <param name="name">Element name</param>
+      <param name="state">Element state</param>
+      <returns>Instance of element that implements ICheckBox interface</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IElementFactory.GetComboBox(OpenQA.Selenium.By,System.String,Aquality.Selenium.Core.Elements.ElementState)">
+      <summary>
+        Creates element that implements IComboBox interface.
+      </summary>
+      <param name="locator">Element locator</param>
+      <param name="name">Element name</param>
+      <param name="state">Element state</param>
+      <returns>Instance of element that implements IComboBox interface</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IElementFactory.GetLabel(OpenQA.Selenium.By,System.String,Aquality.Selenium.Core.Elements.ElementState)">
+      <summary>
+        Creates element that implements ILabel interface.
+      </summary>
+      <param name="locator">Element locator</param>
+      <param name="name">Element name</param>
+      <param name="state">Element state</param>
+      <returns>Instance of element that implements ILabel interface</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IElementFactory.GetLink(OpenQA.Selenium.By,System.String,Aquality.Selenium.Core.Elements.ElementState)">
+      <summary>
+        Creates element that implements ILink interface.
+      </summary>
+      <param name="locator">Element locator</param>
+      <param name="name">Element name</param>
+      <param name="state">Element state</param>
+      <returns>Instance of element that implements ILink interface</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IElementFactory.GetRadioButton(OpenQA.Selenium.By,System.String,Aquality.Selenium.Core.Elements.ElementState)">
+      <summary>
+        Creates element that implements IRadioButton interface.
+      </summary>
+      <param name="locator">Element locator</param>
+      <param name="name">Element name</param>
+      <param name="state">Element state</param>
+      <returns>Instance of element that implements IRadioButton interface</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IElementFactory.GetTextBox(OpenQA.Selenium.By,System.String,Aquality.Selenium.Core.Elements.ElementState)">
+      <summary>
+        Creates element that implements ITextBox interface.
+      </summary>
+      <param name="locator">Element locator</param>
+      <param name="name">Element name</param>
+      <param name="state">Element state</param>
+      <returns>Instance of element that implements ITextBox interface</returns>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.IElementFactory.Get``1(OpenQA.Selenium.By,System.String,Aquality.Selenium.Core.Elements.ElementSupplier{``0},Aquality.Selenium.Core.Elements.ElementState)">
+      <summary>
+        Creates element that implements <typeparamref name="T"/> interface.
+      </summary>
+      <typeparam name="T">Type of child element that has to implement IElement.</typeparam>
+      <param name="locator">Base elements locator.</param>
+      <param name="name">Elements name.</param>
+      <param name="supplier">Delegate that defines constructor of element in case of custom element.</param>
+      <param name="state">Elements state.</param>
+      <returns></returns>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.Interfaces.ILabel">
+      <summary>
+        Describes behavior of Label UI element.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.Interfaces.ILink">
+      <summary>
+        Describes behavior of Link UI element.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Elements.Interfaces.ILink.Href">
+      <summary>
+        Gets value of href attribute.
+      </summary>
+      <value>String representation of element's href.</value>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.Interfaces.IRadioButton">
+      <summary>
+        Describes behavior of RadioButton UI element.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Elements.Interfaces.IRadioButton.IsChecked">
+      <summary>
+        Gets RadioButton state.
+      </summary>
+      <value>True if checked and false otherwise.</value>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.Interfaces.ITextBox">
+      <summary>
+        Describes behavior of TextBox UI element.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Elements.Interfaces.ITextBox.Value">
+      <summary>
+        Gets text value of an element.
+      </summary>
+      <value>String representation of element's value</value>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.ITextBox.Type(System.String,System.Boolean)">
+      <summary>
+        Type text in an element.
+      </summary>
+      <param name="value">Text to type.</param>
+      <param name="secret">Should the typing text be hidden in logs or not. False by default.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.ITextBox.ClearAndType(System.String,System.Boolean)">
+      <summary>
+        Clear element text and type value.
+      </summary>
+      <param name="value">Text to type.</param>
+      <param name="secret">Should the typing text be hidden in logs or not. False by default.</param>
+    </member>
+    <member name="M:Aquality.Selenium.Elements.Interfaces.ITextBox.Submit">
+      <summary>
+        Submit typed value.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.Label">
+      <summary>
+        Defines Label UI element.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.Link">
+      <summary>
+        Defines Link UI element.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.RadioButton">
+      <summary>
+        Defines RadioButton UI element.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Elements.TextBox">
+      <summary>
+        Defines TextBox UI element.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Forms.Form">
+      <summary>
+        Defines base class for any UI form.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Forms.Form.#ctor(OpenQA.Selenium.By,System.String)">
+      <summary>
+        Constructor with parameters.
+      </summary>
+      <param name="locator">Unique locator of the form.</param>
+      <param name="name">Name of the form.</param>
+    </member>
+    <member name="P:Aquality.Selenium.Forms.Form.FormElement">
+      <summary>
+        Gets Form element defined by its locator and name.
+        Could be used to find child elements relative to form element.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Forms.Form.Logger">
+      <summary>
+        Instance of logger <see cref="T:Aquality.Selenium.Core.Logging.Logger"/>
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Forms.Form.VisualizationConfiguration">
+      <summary>
+        Visualization configuration used by <see cref="P:Aquality.Selenium.Core.Forms.Form`1.Dump"/>.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Forms.Form.LocalizedLogger">
+      <summary>
+        Localized logger used by <see cref="P:Aquality.Selenium.Core.Forms.Form`1.Dump"/>.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Forms.Form.ConditionalWait">
+      <summary>
+        Conditional wait <see cref="T:Aquality.Selenium.Core.Waitings.IConditionalWait"/>
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Forms.Form.ElementFactory">
+      <summary>
+        Element factory <see cref="T:Aquality.Selenium.Elements.Interfaces.IElementFactory"/>
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Forms.Form.Locator">
+      <summary>
+        Locator of the form.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Forms.Form.Name">
+      <summary>
+        Name of the form.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Forms.Form.State">
+      <summary>
+        Provides ability to get form's state (whether it is displayed, exists or not) and respective waiting functions.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Forms.Form.Size">
+      <summary>
+        Gets size of form element defined by its locator.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Forms.Form.ScrollBy(System.Int32,System.Int32)">
+      <summary>
+        Scroll form without scrolling entire page
+      </summary>
+      <param name="x">horizontal coordinate</param>
+      <param name="y">vertical coordinate</param>
+    </member>
+    <member name="T:Aquality.Selenium.Logging.HttpExchangeLoggingOptions">
+      <summary>
+        HTTP Request/Response logging options.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Logging.HttpExchangeLoggingOptions.RequestInfo">
+      <summary>
+        Controls logging of general request info: Method, URL, Request ID.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Logging.HttpExchangeLoggingOptions.RequestHeaders">
+      <summary>
+        Controls logging of request headers.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Logging.HttpExchangeLoggingOptions.RequestPostData">
+      <summary>
+        Controls logging of request POST data.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Logging.HttpExchangeLoggingOptions.ResponseInfo">
+      <summary>
+        Controls logging of general response info: Status code, URL, Resource type, Request ID.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Logging.HttpExchangeLoggingOptions.ResponseHeaders">
+      <summary>
+        Controls logging of response headers.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Logging.HttpExchangeLoggingOptions.ResponseBody">
+      <summary>
+        Controls logging of response body.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Logging.LocalizedLoggerExtensions">
+      <summary>
+        Extensions for localized logger.
+      </summary>
+    </member>
+    <member name="M:Aquality.Selenium.Logging.LocalizedLoggerExtensions.LogByLevel(Aquality.Selenium.Core.Localization.ILocalizedLogger,Aquality.Selenium.Logging.LogLevel,System.String,System.Object[])">
+      <summary>
+        Logging of localized messages with a specific log level.
+      </summary>
+      <param name="logger">Current instance of logger.</param>
+      <param name="logLevel">Logging level.</param>
+      <param name="messageKey">Localized message key.</param>
+      <param name="args">Arguments for the localized message.</param>
+      <exception cref="T:System.NotSupportedException">Thrown when specified log level is not supported.</exception>
+    </member>
+    <member name="T:Aquality.Selenium.Logging.LoggingParameters">
+      <summary>
+        Logging parameters for specific features, such as HTTP Exchange.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Logging.LoggingParameters.Enabled">
+      <summary>
+        Whether feature logging should be enabled or not.
+      </summary>
+    </member>
+    <member name="P:Aquality.Selenium.Logging.LoggingParameters.LogLevel">
+      <summary>
+        Logging level for the specific feature.
+      </summary>
+    </member>
+    <member name="T:Aquality.Selenium.Logging.LogLevel">
+      <summary>
+        Logging level for specific features, such as HTTP Exchange.
+      </summary>
+    </member>
+  </members>
+</doc>
