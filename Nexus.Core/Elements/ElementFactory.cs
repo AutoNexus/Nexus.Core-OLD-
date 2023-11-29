@@ -3,12 +3,7 @@ using Nexus.Core.Localization;
 using Nexus.Core.Waitings;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nexus.Core.Elements
 {

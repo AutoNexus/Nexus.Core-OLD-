@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Nexus.Core.Elements.Interfaces
+﻿namespace Nexus.Core.Elements.Interfaces
 {
     /// <summary>
     /// Provides ability to define element's state (whether it is displayed, exist or not).

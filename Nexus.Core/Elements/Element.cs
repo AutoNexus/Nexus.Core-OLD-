@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Nexus.Core.Applications;
+﻿using Nexus.Core.Applications;
 using Nexus.Core.Configuration;
 using Nexus.Core.Elements.Interfaces;
 using Nexus.Core.Localization;

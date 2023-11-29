@@ -1,6 +1,4 @@
-﻿
-
-using Nexus.Core.Configuration;
+﻿using Nexus.Core.Configuration;
 using Nexus.Core.Elements.Interfaces;
 using Nexus.Core.Localization;
 using System.Globalization;

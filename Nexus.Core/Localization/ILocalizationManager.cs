@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Nexus.Core.Localization
+﻿namespace Nexus.Core.Localization
 {
     /// <summary>
     /// This interface is using for translation messages to different languages

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Nexus.Core.Visualization
+﻿namespace Nexus.Core.Visualization
 {
     /// <summary>
     /// Describes dump manager for the form that could be used for visualization purposes, such as saving and comparing dumps.
