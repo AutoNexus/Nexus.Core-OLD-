@@ -20,22 +20,22 @@ namespace Nexus.Selenium.Logging
             switch (logLevel)
             {
                 case LogLevel.Debug:
-                logger.Debug(messageKey, args: args);
-                break;
+                    logger.Debug(messageKey, args: args);
+                    break;
                 case LogLevel.Info:
-                logger.Info(messageKey, args);
-                break;
+                    logger.Info(messageKey, args);
+                    break;
                 case LogLevel.Warn:
-                logger.Warn(messageKey, args);
-                break;
+                    logger.Warn(messageKey, args);
+                    break;
                 case LogLevel.Error:
-                logger.Error(messageKey, args);
-                break;
+                    logger.Error(messageKey, args);
+                    break;
                 case LogLevel.Fatal:
-                logger.Fatal(messageKey, args: args);
-                break;
+                    logger.Fatal(messageKey, args: args);
+                    break;
                 default:
-                throw new NotSupportedException($"Localized logging at level [{logLevel}] is not supported.");
+                    throw new NotSupportedException($"Localized logging at level [{logLevel}] is not supported.");
             }
         }
     }

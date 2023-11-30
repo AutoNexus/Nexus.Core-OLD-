@@ -50,21 +50,21 @@ namespace Nexus.Selenium.Configurations
                 switch (BrowserName)
                 {
                     case BrowserName.Chrome:
-                    return new ChromeSettings(settingsFile);
+                        return new ChromeSettings(settingsFile);
                     case BrowserName.Edge:
-                    return new EdgeSettings(settingsFile);
+                        return new EdgeSettings(settingsFile);
                     case BrowserName.Firefox:
-                    return new FirefoxSettings(settingsFile);
+                        return new FirefoxSettings(settingsFile);
                     case BrowserName.IExplorer:
-                    return new InternetExplorerSettings(settingsFile);
+                        return new InternetExplorerSettings(settingsFile);
                     case BrowserName.Opera:
-                    return new OperaSettings(settingsFile);
+                        return new OperaSettings(settingsFile);
                     case BrowserName.Safari:
-                    return new SafariSettings(settingsFile);
+                        return new SafariSettings(settingsFile);
                     case BrowserName.Yandex:
-                    return new YandexSettings(settingsFile);
+                        return new YandexSettings(settingsFile);
                     default:
-                    throw new InvalidOperationException($"There is no assigned behaviour for retrieving DriverSettings for browser {BrowserName}");
+                        throw new InvalidOperationException($"There is no assigned behaviour for retrieving DriverSettings for browser {BrowserName}");
                 }
             }
         }

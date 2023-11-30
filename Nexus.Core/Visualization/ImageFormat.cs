@@ -39,35 +39,35 @@ namespace Nexus.Core.Visualization
             switch (format.ToLower())
             {
                 case ".bmp":
-                return Bmp;
+                    return Bmp;
                 case ".heif":
-                return Heif;
+                    return Heif;
                 case ".avif":
-                return Avif;
+                    return Avif;
                 case ".gif":
-                return Gif;
+                    return Gif;
                 case ".ico":
-                return Ico;
+                    return Ico;
                 case ".jpg":
-                return Jpg;
+                    return Jpg;
                 case ".jpeg":
-                return Jpeg;
+                    return Jpeg;
                 case ".wbmp":
-                return Wbmp;
+                    return Wbmp;
                 case ".png":
-                return Png;
+                    return Png;
                 case ".astc":
-                return Astc;
+                    return Astc;
                 case ".dng":
-                return Dng;
+                    return Dng;
                 case ".ktx":
-                return Ktx;
+                    return Ktx;
                 case ".webp":
-                return Webp;
+                    return Webp;
                 case ".pkm":
-                return Pkm;
+                    return Pkm;
                 default:
-                throw new NotSupportedException($"Unknown <{format}> extension for image file");
+                    throw new NotSupportedException($"Unknown <{format}> extension for image file");
             }
         }
     }

@@ -53,18 +53,18 @@ namespace Nexus.Core.Elements
             switch (expectedCount)
             {
                 case ElementsCount.Zero:
-                ConditionalWait.WaitForTrue(() => !ElementFinder.FindElements(locator, state, TimeSpan.Zero, name).Any(),
-                    message: LocalizationManager.GetLocalizedMessage("loc.elements.with.name.found.but.should.not", name, locator.ToString(), state.ToString()));
-                break;
+                    ConditionalWait.WaitForTrue(() => !ElementFinder.FindElements(locator, state, TimeSpan.Zero, name).Any(),
+                        message: LocalizationManager.GetLocalizedMessage("loc.elements.with.name.found.but.should.not", name, locator.ToString(), state.ToString()));
+                    break;
                 case ElementsCount.MoreThenZero:
-                ConditionalWait.WaitForTrue(() => ElementFinder.FindElements(locator, state, TimeSpan.Zero, name).Any(),
-                    message: LocalizationManager.GetLocalizedMessage("loc.no.elements.with.name.found.by.locator", name, locator.ToString()));
-                break;
+                    ConditionalWait.WaitForTrue(() => ElementFinder.FindElements(locator, state, TimeSpan.Zero, name).Any(),
+                        message: LocalizationManager.GetLocalizedMessage("loc.no.elements.with.name.found.by.locator", name, locator.ToString()));
+                    break;
                 case ElementsCount.Any:
-                ConditionalWait.WaitFor(() => ElementFinder.FindElements(locator, state, TimeSpan.Zero, name) != null);
-                break;
+                    ConditionalWait.WaitFor(() => ElementFinder.FindElements(locator, state, TimeSpan.Zero, name) != null);
+                    break;
                 default:
-                throw new ArgumentOutOfRangeException($"No such expected value: {expectedCount}");
+                    throw new ArgumentOutOfRangeException($"No such expected value: {expectedCount}");
             }
 
             var webElements = ElementFinder.FindElements(locator, state, TimeSpan.Zero, name);

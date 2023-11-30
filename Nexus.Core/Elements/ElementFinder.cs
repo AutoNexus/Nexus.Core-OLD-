@@ -114,13 +114,13 @@ namespace Nexus.Core.Elements
             switch (state)
             {
                 case ElementState.Displayed:
-                elementStateCondition = element => element.Displayed;
-                break;
+                    elementStateCondition = element => element.Displayed;
+                    break;
                 case ElementState.ExistsInAnyState:
-                elementStateCondition = element => true;
-                break;
+                    elementStateCondition = element => true;
+                    break;
                 default:
-                throw new InvalidOperationException($"{state} state is not recognized");
+                    throw new InvalidOperationException($"{state} state is not recognized");
             }
 
             return new DesiredState(elementStateCondition, state.ToString());

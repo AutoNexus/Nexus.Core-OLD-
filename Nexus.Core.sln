@@ -5,7 +5,11 @@ VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nexus.Core", "Nexus.Core\Nexus.Core.csproj", "{8C2A5D45-4FB4-4CB1-90FA-661D5A8D2E58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nexus.Selenium", "Nexus.Selenium\Nexus.Selenium.csproj", "{464D2684-13C3-45F3-BAC4-3AC074939FF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nexus.Selenium", "Nexus.Selenium\Nexus.Selenium.csproj", "{464D2684-13C3-45F3-BAC4-3AC074939FF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nexus.Template", "Nexus.Template\Nexus.Template.csproj", "{0A18742E-CDD9-474B-9BE8-3FA73937F940}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nexus.TestProject", "Nexus.TestProject\Nexus.TestProject.csproj", "{21A118BB-B9A0-44CC-81CE-D7B5EFEF9C38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{464D2684-13C3-45F3-BAC4-3AC074939FF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{464D2684-13C3-45F3-BAC4-3AC074939FF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{464D2684-13C3-45F3-BAC4-3AC074939FF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A18742E-CDD9-474B-9BE8-3FA73937F940}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A18742E-CDD9-474B-9BE8-3FA73937F940}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A18742E-CDD9-474B-9BE8-3FA73937F940}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A18742E-CDD9-474B-9BE8-3FA73937F940}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21A118BB-B9A0-44CC-81CE-D7B5EFEF9C38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21A118BB-B9A0-44CC-81CE-D7B5EFEF9C38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21A118BB-B9A0-44CC-81CE-D7B5EFEF9C38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21A118BB-B9A0-44CC-81CE-D7B5EFEF9C38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
