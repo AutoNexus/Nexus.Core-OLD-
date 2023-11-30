@@ -20,13 +20,13 @@ namespace Nexus.Core.Forms
 
         /// <summary>
         /// Visualization configuration used by <see cref="Dump"/>.
-        /// Could be obtained from AqualityServices.
+        /// Could be obtained from NexusServices.
         /// </summary>
         protected abstract IVisualizationConfiguration VisualizationConfiguration { get; }
 
         /// <summary>
         /// Localized logger used by <see cref="Dump"/>.
-        /// Could be obtained from AqualityServices.
+        /// Could be obtained from NexusServices.
         /// </summary>
         protected abstract ILocalizedLogger LocalizedLogger { get; }
 
