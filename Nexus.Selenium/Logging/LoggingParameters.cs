@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Nexus.Selenium.Logging
+﻿namespace Nexus.Selenium.Logging
 {
     /// <summary>
     /// Logging parameters for specific features, such as HTTP Exchange.

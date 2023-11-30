@@ -1,6 +1,5 @@
 ﻿using Nexus.Core.Visualization;
 using OpenQA.Selenium;
-using System;
 
 namespace Nexus.Core.Elements.Interfaces
 {

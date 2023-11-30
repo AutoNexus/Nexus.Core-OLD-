@@ -3,8 +3,6 @@ using Nexus.Selenium.Elements.Actions;
 using Nexus.Selenium.Elements.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Nexus.Selenium.Elements
 {

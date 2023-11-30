@@ -1,15 +1,14 @@
-﻿using Nexus.Selenium.Configurations;
-using Nexus.Core.Localization;
+﻿using Nexus.Core.Localization;
 using Nexus.Core.Utilities;
+using Nexus.Selenium.Configurations;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
-using System;
 
 namespace Nexus.Selenium.Browsers
-{    
-     /// <summary>
-     /// Factory that creates instance of remote Browser.
-     /// </summary>
+{
+    /// <summary>
+    /// Factory that creates instance of remote Browser.
+    /// </summary>
     public class RemoteBrowserFactory : BrowserFactory
     {
         public RemoteBrowserFactory(IActionRetrier actionRetrier, IBrowserProfile browserProfile, ITimeoutConfiguration timeoutConfiguration, ILocalizedLogger localizedLogger)

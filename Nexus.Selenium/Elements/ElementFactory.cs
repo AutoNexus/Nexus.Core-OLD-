@@ -1,14 +1,11 @@
-﻿using Nexus.Selenium.Browsers;
-using Nexus.Core.Elements;
+﻿using Nexus.Core.Elements;
 using Nexus.Core.Elements.Interfaces;
 using Nexus.Core.Localization;
 using Nexus.Core.Waitings;
+using Nexus.Selenium.Browsers;
 using Nexus.Selenium.Elements.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using CoreFactory = Nexus.Core.Elements.ElementFactory;
 using IElementFactory = Nexus.Selenium.Elements.Interfaces.IElementFactory;
 

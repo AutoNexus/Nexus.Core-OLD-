@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Nexus.Selenium.Elements.Actions;
+﻿using Nexus.Selenium.Elements.Actions;
 
 namespace Nexus.Selenium.Elements.Interfaces
 {

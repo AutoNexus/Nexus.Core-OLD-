@@ -1,12 +1,7 @@
 ﻿using Nexus.Core.Utilities;
 using Nexus.Selenium.Browsers;
-using OpenQA.Selenium.Safari;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OpenQA.Selenium.Safari;
 
 namespace Nexus.Selenium.Configurations.WebDriverSettings
 {

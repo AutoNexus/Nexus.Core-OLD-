@@ -1,14 +1,9 @@
 ﻿using Newtonsoft.Json.Linq;
+using Nexus.Core.Localization;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chromium;
 using OpenQA.Selenium.DevTools;
 using OpenQA.Selenium.Firefox;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Nexus.Core.Localization;
 
 namespace Nexus.Selenium.Browsers
 {

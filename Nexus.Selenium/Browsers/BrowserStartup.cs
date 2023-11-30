@@ -1,22 +1,17 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Nexus.Core.Applications;
-using Nexus.Core.Configuration;
-using Nexus.Selenium.Elements;
-using Nexus.Selenium.Elements.Interfaces;
-using Microsoft.Extensions.DependencyInjection;
-using System;
 using Nexus.Core.Localization;
 using Nexus.Core.Logging;
-using System.Reflection;
-using Nexus.Core.Applications;
+using Nexus.Core.Utilities;
 using Nexus.Selenium.Configurations;
-using Nexus.Core.Configuration;
+using Nexus.Selenium.Elements;
+using Nexus.Selenium.Elements.Interfaces;
+using System.Reflection;
 using ICoreElementFactory = Nexus.Core.Elements.Interfaces.IElementFactory;
 using ICoreTimeoutConfiguration = Nexus.Core.Configuration.ITimeoutConfiguration;
 using ILoggerConfiguration = Nexus.Core.Configuration.ILoggerConfiguration;
 using ITimeoutConfiguration = Nexus.Selenium.Configurations.ITimeoutConfiguration;
 using TimeoutConfiguration = Nexus.Selenium.Configurations.TimeoutConfiguration;
-using Nexus.Core.Utilities;
 namespace Nexus.Selenium.Browsers
 {
     public class BrowserStartup : Startup

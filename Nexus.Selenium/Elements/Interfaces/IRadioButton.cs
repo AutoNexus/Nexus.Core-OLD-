@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Nexus.Selenium.Elements.Interfaces
+﻿namespace Nexus.Selenium.Elements.Interfaces
 {
     /// <summary>
     /// Describes behavior of RadioButton UI element.

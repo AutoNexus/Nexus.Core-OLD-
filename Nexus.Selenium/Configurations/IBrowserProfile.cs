@@ -1,6 +1,5 @@
 ﻿using Nexus.Selenium.Browsers;
 using Nexus.Selenium.Configurations.WebDriverSettings;
-using System;
 
 
 namespace Nexus.Selenium.Configurations

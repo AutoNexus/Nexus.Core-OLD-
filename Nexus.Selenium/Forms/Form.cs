@@ -1,13 +1,13 @@
-﻿using System.Drawing;
-using Nexus.Selenium.Browsers;
-using Nexus.Core.Logging;
+﻿using Nexus.Core.Configuration;
 using Nexus.Core.Forms;
+using Nexus.Core.Localization;
+using Nexus.Core.Logging;
+using Nexus.Core.Waitings;
+using Nexus.Selenium.Browsers;
 using Nexus.Selenium.Elements.Interfaces;
 using OpenQA.Selenium;
+using System.Drawing;
 using IElementStateProvider = Nexus.Core.Elements.Interfaces.IElementStateProvider;
-using Nexus.Core.Configuration;
-using Nexus.Core.Localization;
-using Nexus.Core.Waitings;
 
 namespace Nexus.Selenium.Forms
 {

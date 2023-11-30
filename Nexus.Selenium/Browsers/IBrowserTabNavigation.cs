@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Nexus.Selenium.Browsers
+﻿namespace Nexus.Selenium.Browsers
 {
     /// <summary>
     /// Provides functionality to work with browser tab navigation.  

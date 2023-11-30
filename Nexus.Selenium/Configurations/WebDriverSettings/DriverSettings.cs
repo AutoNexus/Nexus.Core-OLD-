@@ -1,11 +1,6 @@
-﻿using Nexus.Selenium.Browsers;
-using Nexus.Core.Configuration;
-using Nexus.Core.Utilities;
+﻿using Nexus.Core.Utilities;
+using Nexus.Selenium.Browsers;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using WebDriverManager.Helpers;
 
 namespace Nexus.Selenium.Configurations.WebDriverSettings

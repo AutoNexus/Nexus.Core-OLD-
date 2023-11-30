@@ -1,16 +1,13 @@
-﻿using Nexus.Selenium.Configurations;
-using Nexus.Core.Applications;
+﻿using Nexus.Core.Applications;
 using Nexus.Core.Localization;
+using Nexus.Core.Waitings;
+using Nexus.Selenium.Configurations;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.Extensions;
+using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Reflection;
-using System;
-using Nexus.Core.Waitings;
-using System.Collections.ObjectModel;
-
 using IDevTools = OpenQA.Selenium.DevTools.IDevTools;
-using Nexus.Selenium.Configurations;
 
 namespace Nexus.Selenium.Browsers
 {

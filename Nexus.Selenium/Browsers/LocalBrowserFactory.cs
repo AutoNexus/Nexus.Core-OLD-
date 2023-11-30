@@ -10,8 +10,6 @@ using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Safari;
-using System;
-using System.IO;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs;
 using WebDriverManager.DriverConfigs.Impl;
@@ -44,38 +42,38 @@ namespace Nexus.Selenium.Browsers
                 {
                     case BrowserName.Chrome:
                     case BrowserName.Yandex:
-                        SetUpDriver(new ChromeConfig(), driverSettings);
-                        driver = GetDriver<ChromeDriver>(ChromeDriverService.CreateDefaultService(),
-                            (ChromeOptions)driverSettings.DriverOptions, commandTimeout);
-                        break;
+                    SetUpDriver(new ChromeConfig(), driverSettings);
+                    driver = GetDriver<ChromeDriver>(ChromeDriverService.CreateDefaultService(),
+                        (ChromeOptions)driverSettings.DriverOptions, commandTimeout);
+                    break;
                     case BrowserName.Firefox:
-                        SetUpDriver(new FirefoxConfig(), driverSettings);
-                        var geckoService = FirefoxDriverService.CreateDefaultService();
-                        geckoService.Host = ((FirefoxSettings)driverSettings).IsGeckoServiceHostDefaultEnabled ? HostAddressDefault : geckoService.Host;
-                        driver = GetDriver<FirefoxDriver>(geckoService, (FirefoxOptions)driverSettings.DriverOptions, commandTimeout);
-                        break;
+                    SetUpDriver(new FirefoxConfig(), driverSettings);
+                    var geckoService = FirefoxDriverService.CreateDefaultService();
+                    geckoService.Host = ((FirefoxSettings)driverSettings).IsGeckoServiceHostDefaultEnabled ? HostAddressDefault : geckoService.Host;
+                    driver = GetDriver<FirefoxDriver>(geckoService, (FirefoxOptions)driverSettings.DriverOptions, commandTimeout);
+                    break;
                     case BrowserName.IExplorer:
-                        SetUpDriver(new InternetExplorerConfig(), driverSettings);
-                        driver = GetDriver<InternetExplorerDriver>(InternetExplorerDriverService.CreateDefaultService(),
-                            (InternetExplorerOptions)driverSettings.DriverOptions, commandTimeout);
-                        break;
+                    SetUpDriver(new InternetExplorerConfig(), driverSettings);
+                    driver = GetDriver<InternetExplorerDriver>(InternetExplorerDriverService.CreateDefaultService(),
+                        (InternetExplorerOptions)driverSettings.DriverOptions, commandTimeout);
+                    break;
                     case BrowserName.Edge:
-                        SetUpDriver(new EdgeConfig(), driverSettings);
-                        driver = GetDriver<EdgeDriver>(EdgeDriverService.CreateDefaultService(),
-                            (EdgeOptions)driverSettings.DriverOptions, commandTimeout);
-                        break;
+                    SetUpDriver(new EdgeConfig(), driverSettings);
+                    driver = GetDriver<EdgeDriver>(EdgeDriverService.CreateDefaultService(),
+                        (EdgeOptions)driverSettings.DriverOptions, commandTimeout);
+                    break;
                     case BrowserName.Opera:
-                        var config = new OperaConfig();
-                        var driverPath = SetUpDriver(config, driverSettings);
-                        driver = GetDriver<ChromeDriver>(ChromeDriverService.CreateDefaultService(Path.GetDirectoryName(driverPath), config.GetBinaryName()),
-                            (ChromeOptions)driverSettings.DriverOptions, commandTimeout);
-                        break;
+                    var config = new OperaConfig();
+                    var driverPath = SetUpDriver(config, driverSettings);
+                    driver = GetDriver<ChromeDriver>(ChromeDriverService.CreateDefaultService(Path.GetDirectoryName(driverPath), config.GetBinaryName()),
+                        (ChromeOptions)driverSettings.DriverOptions, commandTimeout);
+                    break;
                     case BrowserName.Safari:
-                        driver = GetDriver<SafariDriver>(SafariDriverService.CreateDefaultService(),
-                            (SafariOptions)driverSettings.DriverOptions, commandTimeout);
-                        break;
+                    driver = GetDriver<SafariDriver>(SafariDriverService.CreateDefaultService(),
+                        (SafariOptions)driverSettings.DriverOptions, commandTimeout);
+                    break;
                     default:
-                        throw new NotSupportedException($"Browser [{browserName}] is not supported.");
+                    throw new NotSupportedException($"Browser [{browserName}] is not supported.");
                 }
                 return driver;
             }

@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Nexus.Core.Localization;
+using Nexus.Core.Utilities;
+using Nexus.Selenium.Browsers;
+using Nexus.Selenium.Configurations;
+using Nexus.Selenium.Elements.Interfaces;
 using OpenQA.Selenium;
 using SeleniumActions = OpenQA.Selenium.Interactions.Actions;
-using Nexus.Selenium.Elements.Interfaces;
-using Nexus.Selenium.Browsers;
-using Nexus.Core.Utilities;
-using Nexus.Core.Localization;
-using Nexus.Selenium.Configurations;
 
 namespace Nexus.Selenium.Elements.Actions
 {

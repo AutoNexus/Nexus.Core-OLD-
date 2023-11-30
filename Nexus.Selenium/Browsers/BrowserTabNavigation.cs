@@ -1,11 +1,5 @@
 ﻿using Nexus.Core.Localization;
-using OpenQA.Selenium.DevTools;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nexus.Selenium.Browsers
 {

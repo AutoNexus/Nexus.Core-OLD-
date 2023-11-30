@@ -1,7 +1,6 @@
 ﻿using Nexus.Selenium.Elements.Interfaces;
 using Nexus.Selenium.Forms;
 using OpenQA.Selenium;
-using System;
 
 namespace Nexus.Selenium.Browsers
 {

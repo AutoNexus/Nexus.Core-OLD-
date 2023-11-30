@@ -1,12 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Threading;
-using Nexus.Selenium.Configurations;
 using Nexus.Core.Applications;
 using Nexus.Core.Localization;
 using Nexus.Core.Logging;
-using Nexus.Core.Waitings;
 using Nexus.Core.Utilities;
+using Nexus.Core.Waitings;
+using Nexus.Selenium.Configurations;
 
 namespace Nexus.Selenium.Browsers
 {

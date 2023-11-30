@@ -1,17 +1,12 @@
 ﻿using Nexus.Core.Localization;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nexus.Selenium.Browsers
 {
     /// <summary>
     /// Wrap over implementation of Selenium WebDriver IJavaScriptEngine.
     /// </summary>
-    public class JavaScriptHandling :IJavaScriptEngine
+    public class JavaScriptHandling : IJavaScriptEngine
     {
         private readonly IList<string> bindings = new List<string>();
         private readonly IJavaScriptEngine javaScriptEngine;

@@ -1,5 +1,4 @@
-﻿using System;
-using CoreTimeoutConfiguration = Nexus.Core.Configuration.ITimeoutConfiguration;
+﻿using CoreTimeoutConfiguration = Nexus.Core.Configuration.ITimeoutConfiguration;
 
 namespace Nexus.Selenium.Configurations
 {

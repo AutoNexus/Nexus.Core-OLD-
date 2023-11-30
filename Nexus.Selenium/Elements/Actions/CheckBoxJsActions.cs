@@ -1,6 +1,6 @@
-﻿using Nexus.Selenium.Browsers;
+﻿using Nexus.Core.Localization;
+using Nexus.Selenium.Browsers;
 using Nexus.Selenium.Configurations;
-using Nexus.Core.Localization;
 using Nexus.Selenium.Elements.Interfaces;
 
 namespace Nexus.Selenium.Elements.Actions

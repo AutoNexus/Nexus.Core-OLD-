@@ -1,14 +1,9 @@
 ﻿using Nexus.Core.Utilities;
 using Nexus.Selenium.Browsers;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Chromium;
-using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nexus.Selenium.Configurations.WebDriverSettings
 {

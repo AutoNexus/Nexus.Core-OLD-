@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using Nexus.Selenium.Browsers;
-using Nexus.Selenium.Configurations;
-using Nexus.Core.Elements;
+﻿using Nexus.Core.Elements;
 using Nexus.Core.Localization;
 using Nexus.Core.Utilities;
+using Nexus.Selenium.Browsers;
+using Nexus.Selenium.Configurations;
 using Nexus.Selenium.Elements.Interfaces;
 using OpenQA.Selenium;
-using Nexus.Core.Applications;
+using System.Collections;
+using System.Drawing;
 
 namespace Nexus.Selenium.Elements.Actions
 {
