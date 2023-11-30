@@ -24,7 +24,7 @@ namespace Nexus.Selenium.Browsers
             network = driver.Manage().Network;
         }
 
-        private ILocalizedLogger Logger => AqualityServices.LocalizedLogger;
+        private ILocalizedLogger Logger => NexusServices.LocalizedLogger;
 
         /// <summary>
         /// A network request sent event.

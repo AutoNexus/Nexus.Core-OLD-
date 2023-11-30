@@ -1,15 +1,13 @@
-﻿using Nexus.Core.Configuration;
-using Nexus.Core.Elements.Interfaces;
+﻿using System.Drawing;
+using Nexus.Selenium.Browsers;
+using Nexus.Core.Logging;
 using Nexus.Core.Forms;
+using Nexus.Selenium.Elements.Interfaces;
+using OpenQA.Selenium;
+using IElementStateProvider = Nexus.Core.Elements.Interfaces.IElementStateProvider;
+using Nexus.Core.Configuration;
 using Nexus.Core.Localization;
 using Nexus.Core.Waitings;
-using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nexus.Selenium.Forms
 {
@@ -40,27 +38,27 @@ namespace Nexus.Selenium.Forms
         /// <summary>
         /// Instance of logger <see cref="Core.Logging.Logger"/>
         /// </summary>
-        protected static Logger Logger => AqualityServices.Logger;
+        protected static Logger Logger => NexusServices.Logger;
 
         /// <summary>
         /// Visualization configuration used by <see cref="Form{T}.Dump"/>.
         /// </summary>
-        protected override IVisualizationConfiguration VisualizationConfiguration => AqualityServices.Get<IVisualizationConfiguration>();
+        protected override IVisualizationConfiguration VisualizationConfiguration => NexusServices.Get<IVisualizationConfiguration>();
 
         /// <summary>
         /// Localized logger used by <see cref="Form{T}.Dump"/>.
         /// </summary>
-        protected override ILocalizedLogger LocalizedLogger => AqualityServices.LocalizedLogger;
+        protected override ILocalizedLogger LocalizedLogger => NexusServices.LocalizedLogger;
 
         /// <summary>
         /// Conditional wait <see cref="IConditionalWait"/>
         /// </summary>
-        protected static IConditionalWait ConditionalWait => AqualityServices.ConditionalWait;
+        protected static IConditionalWait ConditionalWait => NexusServices.ConditionalWait;
 
         /// <summary>
         /// Element factory <see cref="IElementFactory"/>
         /// </summary>
-        protected static IElementFactory ElementFactory => AqualityServices.Get<IElementFactory>();
+        protected static IElementFactory ElementFactory => NexusServices.Get<IElementFactory>();
 
         /// <summary>
         /// Locator of the form.

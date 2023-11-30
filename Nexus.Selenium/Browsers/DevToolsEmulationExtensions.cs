@@ -1,8 +1,10 @@
 ﻿using Nexus.Core.Utilities;
+using OpenQA.Selenium.DevTools;
+using OpenQA.Selenium.DevTools.V85.DOM;
+using OpenQA.Selenium.DevTools.V85.Emulation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Nexus.Selenium.Browsers

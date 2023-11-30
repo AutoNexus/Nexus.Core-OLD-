@@ -1,9 +1,8 @@
 ﻿using Newtonsoft.Json.Linq;
-using System;
+using OpenQA.Selenium.DevTools.V85.Performance;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Nexus.Selenium.Browsers

@@ -1,12 +1,12 @@
-﻿using Nexus.Core.Utilities;
-using Nexus.Selenium.Browsers;
+﻿using Nexus.Selenium.Browsers;
+using Nexus.Core.Configuration;
+using Nexus.Core.Utilities;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+using WebDriverManager.Helpers;
 
 namespace Nexus.Selenium.Configurations.WebDriverSettings
 {
@@ -65,7 +65,7 @@ namespace Nexus.Selenium.Configurations.WebDriverSettings
                     capabilities = SettingsFile.GetValueDictionaryOrEmpty<object>($"{DriverSettingsPath}.{nameof(capabilities)}");
                     if (capabilities.Any())
                     {
-                        AqualityServices.LocalizedLogger.Debug("loc.browser.capabilities",
+                        NexusServices.LocalizedLogger.Debug("loc.browser.capabilities",
                             args: string.Join(",", capabilities.Select(cap => $"{Environment.NewLine}{cap.Key}: {cap.Value}")));
                     }
                 }
@@ -83,7 +83,7 @@ namespace Nexus.Selenium.Configurations.WebDriverSettings
                     options = SettingsFile.GetValueDictionaryOrEmpty<object>($"{DriverSettingsPath}.{nameof(options)}");
                     if (options.Any())
                     {
-                        AqualityServices.LocalizedLogger.Debug("loc.browser.options",
+                        NexusServices.LocalizedLogger.Debug("loc.browser.options",
                             args: string.Join(",", options.Select(opt => $"{Environment.NewLine}{opt.Key}: {opt.Value}")));
                     }
                 }
@@ -101,7 +101,7 @@ namespace Nexus.Selenium.Configurations.WebDriverSettings
                     loggingPreferences = SettingsFile.GetValueDictionaryOrEmpty<LogLevel>($"{DriverSettingsPath}.{nameof(loggingPreferences)}");
                     if (loggingPreferences.Any())
                     {
-                        AqualityServices.LocalizedLogger.Debug("loc.browser.loggingPreferences",
+                        NexusServices.LocalizedLogger.Debug("loc.browser.loggingPreferences",
                             args: string.Join(",", loggingPreferences.Select(opt => $"{Environment.NewLine}{opt.Key}: {opt.Value}")));
                     }
                 }
@@ -119,7 +119,7 @@ namespace Nexus.Selenium.Configurations.WebDriverSettings
                     excludedArguments = SettingsFile.GetValueListOrEmpty<string>($"{DriverSettingsPath}.{nameof(excludedArguments)}");
                     if (excludedArguments.Any())
                     {
-                        AqualityServices.LocalizedLogger.Debug("loc.browser.excludedArguments", args: string.Join(" ", excludedArguments));
+                        NexusServices.LocalizedLogger.Debug("loc.browser.excludedArguments", args: string.Join(" ", excludedArguments));
                     }
                 }
 
@@ -136,7 +136,7 @@ namespace Nexus.Selenium.Configurations.WebDriverSettings
                     startArguments = SettingsFile.GetValueListOrEmpty<string>($"{DriverSettingsPath}.{nameof(startArguments)}");
                     if (startArguments.Any())
                     {
-                        AqualityServices.LocalizedLogger.Debug("loc.browser.arguments", args: string.Join(" ", startArguments));
+                        NexusServices.LocalizedLogger.Debug("loc.browser.arguments", args: string.Join(" ", startArguments));
                     }
                 }
 

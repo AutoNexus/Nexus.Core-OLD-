@@ -1,10 +1,7 @@
-﻿using Nexus.Core.Elements.Interfaces;
+﻿using Nexus.Selenium.Elements.Interfaces;
+using Nexus.Selenium.Forms;
 using OpenQA.Selenium;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nexus.Selenium.Browsers
 {
@@ -13,7 +10,7 @@ namespace Nexus.Selenium.Browsers
     /// </summary>
     public static class PinnedScriptExtensions
     {
-        private static Browser Browser => AqualityServices.Browser;
+        private static Browser Browser => NexusServices.Browser;
 
         /// <summary>
         /// Executes pinned JS script.

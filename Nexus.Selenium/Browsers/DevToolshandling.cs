@@ -1,19 +1,21 @@
 ﻿using Newtonsoft.Json.Linq;
-using Nexus.Core.Localization;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chromium;
 using OpenQA.Selenium.DevTools;
+using OpenQA.Selenium.Firefox;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using Nexus.Core.Localization;
 
 namespace Nexus.Selenium.Browsers
 {
     /// <summary>
     /// Wrapper for Selenium <see cref="IDevTools"/> functionality.
     /// </summary>
-    public class DevToolshandling : IDevTools
+    public class DevToolsHandling : IDevTools
     {
         private readonly IDevTools devToolsProvider;
         private bool wasDevToolsSessionClosed;
@@ -28,7 +30,7 @@ namespace Nexus.Selenium.Browsers
             wasDevToolsSessionClosed = false;
         }
 
-        private ILocalizedLogger Logger => AqualityServices.LocalizedLogger;
+        private ILocalizedLogger Logger => NexusServices.LocalizedLogger;
 
         /// <summary>
         /// Gets a value indicating whether a DevTools session is active.

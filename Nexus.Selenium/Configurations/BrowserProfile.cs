@@ -1,5 +1,6 @@
 ﻿using Nexus.Core.Utilities;
 using Nexus.Selenium.Browsers;
+using Nexus.Selenium.Configurations.WebDriverSettings;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Printing;

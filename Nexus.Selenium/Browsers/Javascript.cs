@@ -71,3 +71,4 @@ namespace Nexus.Selenium.Browsers
             return $"{JavaScriptResourcePath}.{javaScript}.{JavaScriptFileExtension}";
         }
     }
+}

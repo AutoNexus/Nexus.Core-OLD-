@@ -1,16 +1,22 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Nexus.Core.Applications;
 using Nexus.Core.Configuration;
-using Nexus.Core.Elements.Interfaces;
-using Nexus.Core.Elements;
-using Nexus.Core.Localization;
-using Nexus.Core.Utilities;
+using Nexus.Selenium.Elements;
+using Nexus.Selenium.Elements.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using Nexus.Core.Localization;
+using Nexus.Core.Logging;
+using System.Reflection;
+using Nexus.Core.Applications;
+using Nexus.Selenium.Configurations;
+using Nexus.Core.Configuration;
+using ICoreElementFactory = Nexus.Core.Elements.Interfaces.IElementFactory;
+using ICoreTimeoutConfiguration = Nexus.Core.Configuration.ITimeoutConfiguration;
+using ILoggerConfiguration = Nexus.Core.Configuration.ILoggerConfiguration;
+using ITimeoutConfiguration = Nexus.Selenium.Configurations.ITimeoutConfiguration;
+using TimeoutConfiguration = Nexus.Selenium.Configurations.TimeoutConfiguration;
+using Nexus.Core.Utilities;
 namespace Nexus.Selenium.Browsers
 {
     public class BrowserStartup : Startup
@@ -26,7 +32,7 @@ namespace Nexus.Selenium.Browsers
             services.AddSingleton<ICoreTimeoutConfiguration>(serviceProvider => new TimeoutConfiguration(settings));
             services.AddSingleton<IBrowserProfile>(serviceProvider => new BrowserProfile(settings));
             services.AddSingleton<ILocalizationManager>(serviceProvider => new LocalizationManager(serviceProvider.GetRequiredService<ILoggerConfiguration>(), serviceProvider.GetRequiredService<Logger>(), Assembly.GetExecutingAssembly()));
-            services.AddTransient(serviceProvider => AqualityServices.BrowserFactory);
+            services.AddTransient(serviceProvider => NexusServices.BrowserFactory);
             return services;
         }
     }

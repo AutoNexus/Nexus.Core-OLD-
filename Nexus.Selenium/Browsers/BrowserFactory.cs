@@ -1,6 +1,6 @@
-﻿using Nexus.Core.Configuration;
-using Nexus.Core.Localization;
+﻿using Nexus.Core.Localization;
 using Nexus.Core.Utilities;
+using Nexus.Selenium.Configurations;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace Nexus.Selenium.Browsers
     /// </summary>
     public abstract class BrowserFactory : IBrowserFactory
     {
-        protected BrowserFactory(IActionRetrier actionRetrier, IBrowserProfile browserProfile, ITimeoutConfiguration timeoutConfiguration, ILocalizedLogger localizedLogger)
+        protected BrowserFactory(IActionRetrier actionRetrier, IBrowserProfile browserProfile, Configurations.ITimeoutConfiguration timeoutConfiguration, ILocalizedLogger localizedLogger)
         {
             ActionRetrier = actionRetrier;
             BrowserProfile = browserProfile;

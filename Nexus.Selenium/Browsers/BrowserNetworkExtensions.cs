@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using Nexus.Selenium.Logging;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,21 +74,21 @@ namespace Nexus.Selenium.Browsers
             {
                 if (loggingOptions.ResponseInfo.Enabled)
                 {
-                    AqualityServices.LocalizedLogger.LogByLevel(
+                    NexusServices.LocalizedLogger.LogByLevel(
                         loggingOptions.ResponseInfo.LogLevel,
                         "loc.browser.network.event.responsereceived.log.info",
                         args.ResponseStatusCode, args.ResponseUrl, args.ResponseResourceType, args.RequestId);
                 }
                 if (loggingOptions.ResponseHeaders.Enabled && args.ResponseHeaders.Any())
                 {
-                    AqualityServices.LocalizedLogger.LogByLevel(
+                    NexusServices.LocalizedLogger.LogByLevel(
                         loggingOptions.ResponseHeaders.LogLevel,
                         "loc.browser.network.event.responsereceived.log.headers",
                         string.Join(",", args.ResponseHeaders.Select(header => $"{Environment.NewLine}\t{header.Key}: {header.Value}")));
                 }
                 if (loggingOptions.ResponseBody.Enabled && !string.IsNullOrEmpty(args.ResponseBody))
                 {
-                    AqualityServices.LocalizedLogger.LogByLevel(
+                    NexusServices.LocalizedLogger.LogByLevel(
                         loggingOptions.ResponseBody.LogLevel,
                         "loc.browser.network.event.responsereceived.log.body",
                         args.ResponseBody);
@@ -101,7 +102,7 @@ namespace Nexus.Selenium.Browsers
             {
                 if (loggingOptions.RequestInfo.Enabled)
                 {
-                    AqualityServices.LocalizedLogger.LogByLevel(
+                    NexusServices.LocalizedLogger.LogByLevel(
                         loggingOptions.RequestInfo.LogLevel,
                         "loc.browser.network.event.requestsent.log.info",
                         args.RequestMethod, args.RequestUrl, args.RequestId);
@@ -109,14 +110,14 @@ namespace Nexus.Selenium.Browsers
                 }
                 if (loggingOptions.RequestHeaders.Enabled && args.RequestHeaders.Any())
                 {
-                    AqualityServices.LocalizedLogger.LogByLevel(
+                    NexusServices.LocalizedLogger.LogByLevel(
                         loggingOptions.RequestHeaders.LogLevel,
                         "loc.browser.network.event.requestsent.log.headers",
                         string.Join(",", args.RequestHeaders.Select(header => $"{Environment.NewLine}\t{header.Key}: {header.Value}")));
                 }
                 if (loggingOptions.RequestPostData.Enabled && !string.IsNullOrEmpty(args.RequestPostData))
                 {
-                    AqualityServices.LocalizedLogger.LogByLevel(
+                    NexusServices.LocalizedLogger.LogByLevel(
                         loggingOptions.RequestPostData.LogLevel,
                         "loc.browser.network.event.requestsent.log.data",
                         args.RequestPostData);

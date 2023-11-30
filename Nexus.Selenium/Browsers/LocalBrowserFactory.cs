@@ -1,18 +1,21 @@
-﻿using Nexus.Core.Configuration;
+﻿
+
 using Nexus.Core.Localization;
 using Nexus.Core.Utilities;
+using Nexus.Selenium.Configurations;
+using Nexus.Selenium.Configurations.WebDriverSettings;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Safari;
-using OpenQA.Selenium;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using WebDriverManager;
+using WebDriverManager.DriverConfigs;
+using WebDriverManager.DriverConfigs.Impl;
+using WebDriverManager.Helpers;
 
 namespace Nexus.Selenium.Browsers
 {

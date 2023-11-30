@@ -25,7 +25,7 @@ namespace Nexus.Selenium.Browsers
             javaScriptEngine = new JavaScriptEngine(driver);
         }
 
-        private ILocalizedLogger Logger => AqualityServices.LocalizedLogger;
+        private ILocalizedLogger Logger => NexusServices.LocalizedLogger;
 
         /// <summary>
         /// Gets the read-only list of initialization scripts added for this JavaScript engine.

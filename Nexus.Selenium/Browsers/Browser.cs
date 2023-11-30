@@ -1,17 +1,16 @@
-﻿using Nexus.Core.Applications;
-using Nexus.Core.Configuration;
+﻿using Nexus.Selenium.Configurations;
+using Nexus.Core.Applications;
 using Nexus.Core.Localization;
-using Nexus.Core.Waitings;
-using NLog.Internal.Fakeables;
-using OpenQA.Selenium.DevTools;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
+using OpenQA.Selenium.Support.Extensions;
+using System.Drawing;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using System;
+using Nexus.Core.Waitings;
+using System.Collections.ObjectModel;
+
+using IDevTools = OpenQA.Selenium.DevTools.IDevTools;
+using Nexus.Selenium.Configurations;
 
 namespace Nexus.Selenium.Browsers
 {
@@ -36,11 +35,11 @@ namespace Nexus.Selenium.Browsers
             Driver = webDriver;
             Network = new NetworkHandling(webDriver);
             JavaScriptEngine = new JavaScriptHandling(webDriver);
-            Logger = AqualityServices.LocalizedLogger;
-            LocalizationManager = AqualityServices.Get<ILocalizationManager>();
-            browserProfile = AqualityServices.Get<IBrowserProfile>();
-            conditionalWait = AqualityServices.ConditionalWait;
-            var timeoutConfiguration = AqualityServices.Get<ITimeoutConfiguration>();
+            Logger = NexusServices.LocalizedLogger;
+            LocalizationManager = NexusServices.Get<ILocalizationManager>();
+            browserProfile = NexusServices.Get<IBrowserProfile>();
+            conditionalWait = NexusServices.ConditionalWait;
+            var timeoutConfiguration = NexusServices.Get<ITimeoutConfiguration>();
             SetImplicitWaitTimeout(timeoutConfiguration.Implicit);
             SetPageLoadTimeout(timeoutConfiguration.PageLoad);
             SetScriptTimeout(timeoutConfiguration.Script);

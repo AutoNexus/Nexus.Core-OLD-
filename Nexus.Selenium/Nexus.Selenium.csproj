@@ -8,15 +8,11 @@
 
   <ItemGroup>
     <PackageReference Include="NETStandard.Library" Version="2.0.3" />
+    <PackageReference Include="WebDriverManager" Version="2.17.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Nexus.Core\Nexus.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Elements\" />
-    <Folder Include="Resources\JavaScripts\" />
   </ItemGroup>
 
 </Project>

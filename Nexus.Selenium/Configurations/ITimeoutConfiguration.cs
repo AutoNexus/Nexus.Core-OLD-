@@ -1,9 +1,5 @@
 ﻿using System;
 using CoreTimeoutConfiguration = Nexus.Core.Configuration.ITimeoutConfiguration;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nexus.Selenium.Configurations
 {
