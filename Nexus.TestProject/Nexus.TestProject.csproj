@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Folder Include="Resources\VisualDumps\Footer form\" />
   </ItemGroup>
 
 </Project>

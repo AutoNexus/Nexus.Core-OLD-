@@ -20,9 +20,9 @@ namespace Nexus.TestProject.Steps
         {
             Assert.Multiple(() =>
             {
-                //  Assert.IsTrue(footerForm.IsLogoPresent, "Logo should be displayed");
-                //    Assert.IsTrue(footerForm.IsContactsPresent, "Contacts section should be displayed");
-                //  Assert.IsTrue(footerForm.IsSubscribePresent, "Subscribe section should be displayed");
+                  Assert.IsTrue(footerForm.IsLogoPresent, "Logo should be displayed");
+                  Assert.IsTrue(footerForm.IsContactsPresent, "Contacts section should be displayed");
+                  Assert.IsTrue(footerForm.IsSubscribePresent, "Subscribe section should be displayed");
             });
         }
 
@@ -36,7 +36,7 @@ namespace Nexus.TestProject.Steps
         public void CheckThatTheVisualElementsAreCorrect()
         {
             var compareVisualElements = footerForm.Dump.Compare();
-            //  Assert.LessOrEqual(compareVisualElements, ComparisonThreshold, "The footer form should contain the correct visual elements");
+            Assert.LessOrEqual(compareVisualElements, ComparisonThreshold, "The footer form should contain the correct visual elements");
         }
     }
 }

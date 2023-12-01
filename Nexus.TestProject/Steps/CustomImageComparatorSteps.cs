@@ -28,14 +28,14 @@ namespace Nexus.TestProject.Steps
         public void CheckThatActualAndExpectedImagesAreTheSame(SKImage expectedImage)
         {
             var differenceBetweenImages = customImageComparator.Compare(modelOfImage, expectedImage);
-            //Assert.AreEqual(0, differenceBetweenImages, "The images should be the same");
+            Assert.AreEqual(0, differenceBetweenImages, "The images should be the same");
         }
 
         [LogStep(StepType.Assertion)]
         public void CheckThatActualAndExpectedImagesAreNotTheSame(SKImage expectedImage)
         {
             var differenceBetweenImages = customImageComparator.Compare(modelOfImage, expectedImage);
-            //Assert.AreNotEqual(0, differenceBetweenImages, "The images should not be the same");
+            Assert.AreNotEqual(0, differenceBetweenImages, "The images should not be the same");
         }
     }
 }

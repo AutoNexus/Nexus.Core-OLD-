@@ -4,6 +4,7 @@ using Nexus.Selenium.Browsers;
 using Nexus.Selenium.Configurations;
 using Nexus.Template.CustomAttributes;
 using Nexus.Template.Enums;
+using Nexus.Template.Extensions;
 using Nexus.Template.Forms_PageFolder_.Pages;
 using Nexus.Template.Models;
 using Nexus.TestProject.Constants;
@@ -30,19 +31,19 @@ namespace Nexus.TestProject.Steps
             {
                 foreach (ContactUsTextFields name in Enum.GetValues(typeof(ContactUsTextFields)))
                 {
-                    //Assert.IsTrue(contactUsPage.IsContactUsTextBoxPresent(name), $"Text field {name} should be displayed");
+                    Assert.IsTrue(contactUsPage.IsContactUsTextBoxPresent(name), $"Text field {name} should be displayed");
                 }
-                // Assert.IsTrue(contactUsPage.IsTermsCheckBoxExist, "Terms checkBox should be exist");
-                // Assert.IsTrue(contactUsPage.IsTermsLabelPresent, "Terms label should be displayed");
-                // Assert.IsTrue(contactUsPage.IsSendAMessageButtonPresent, "Send a message button should be displayed");
-                // Assert.IsTrue(contactUsPage.IsTitleLabelPresent, "Title should be displayed");
+                 Assert.IsTrue(contactUsPage.IsTermsCheckBoxExist, "Terms checkBox should be exist");
+                 Assert.IsTrue(contactUsPage.IsTermsLabelPresent, "Terms label should be displayed");
+                 Assert.IsTrue(contactUsPage.IsSendAMessageButtonPresent, "Send a message button should be displayed");
+                 Assert.IsTrue(contactUsPage.IsTitleLabelPresent, "Title should be displayed");
             });
         }
 
         [LogStep(StepType.Assertion)]
         public void CheckThanContactUsTitleIsCorrect()
         {
-            // Assert.AreEqual(contactUsPage.TitleLabelTextValue, TitleConstants.TitleLabelText, "Title text should be same.");
+             Assert.AreEqual(contactUsPage.TitleLabelTextValue, TitleConstants.TitleLabelText, "Title text should be same.");
         }
 
         [LogStep(StepType.Step)]
@@ -61,7 +62,7 @@ namespace Nexus.TestProject.Steps
         public void CheckTermCheckBoxIsCheckedOrNot(bool isChecked = false)
         {
             var expectedStatus = isChecked ? "checked" : "not checked";
-            //Assert.AreEqual(contactUsPage.IsTermsCheckBoxChecked, isChecked, $"Term CheckBox should be {expectedStatus}");
+            Assert.AreEqual(contactUsPage.IsTermsCheckBoxChecked, isChecked, $"Term CheckBox should be {expectedStatus}");
         }
 
         [LogStep(StepType.Step)]
@@ -91,7 +92,7 @@ namespace Nexus.TestProject.Steps
         [LogStep(StepType.Step)]
         public void CheckThatWarningEmailMessageIsCorrect()
         {
-            // Assert.AreEqual(contactUsPage.WarningEmailMessageTextValue, ContactUsTextFields.Email.GetEnumDescription(), "Warning email message should be correct.");
+             Assert.AreEqual(contactUsPage.WarningEmailMessageTextValue, ContactUsTextFields.Email.GetEnumDescription(), "Warning email message should be correct.");
         }
     }
 }

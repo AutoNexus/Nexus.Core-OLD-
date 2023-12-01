@@ -26,14 +26,14 @@ namespace Nexus.TestProject.Steps
         [LogStep(StepType.Assertion)]
         public void ContactUsButtonIsPresent()
         {
-            // Assert.IsTrue(topBarMenu.IsContactUsButtonExist, "Contact Us button should be present");
+             Assert.IsTrue(topBarMenu.IsContactUsButtonExist, "Contact Us button should be present");
         }
 
         [LogStep(StepType.Assertion)]
         public void CheckThatNavigationElementsAreCorrect()
         {
             var headerNavigationElements = topBarMenu.GetTextForHeaderNavigationElements;
-            // CollectionAssert.AreEquivalent(HeaderTabItems, headerNavigationElements, "Header navigation elements should be correct");
+             CollectionAssert.AreEquivalent(HeaderTabItems, headerNavigationElements, "Header navigation elements should be correct");
         }
 
         [LogStep(StepType.Step)]
@@ -46,7 +46,7 @@ namespace Nexus.TestProject.Steps
         public void CheckThatServicesTitlesAreDispalayedAndCorrect()
         {
             var servicesTitlesElements = topBarMenu.GetTextFromServicesTitlesElements;
-            //CollectionAssert.AreEqual(ServicesTitleElements, servicesTitlesElements, "Services title elements should be correct");
+            CollectionAssert.AreEqual(ServicesTitleElements, servicesTitlesElements, "Services title elements should be correct");
         }
     }
 }

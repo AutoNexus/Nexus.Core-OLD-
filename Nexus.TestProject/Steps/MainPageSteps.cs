@@ -19,7 +19,7 @@ namespace Nexus.TestProject.Steps
         [LogStep(StepType.Assertion)]
         public void AcceptCookiesButtonIsDisplayed()
         {
-            // Assert.IsTrue(mainPage.IsAcceptCookiesButtonDisplayed, "Accept cookies button should be displayed");
+             Assert.IsTrue(mainPage.IsAcceptCookiesButtonDisplayed, "Accept cookies button should be displayed");
         }
 
         [LogStep(StepType.Assertion)]
