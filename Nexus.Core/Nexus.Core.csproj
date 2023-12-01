@@ -4,7 +4,40 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Authors>nexus automation committers</Authors>
+    <Company>nexus automation</Company>
+    <Description>Core functions for Selenium-based libraries for .NET</Description>
+    <PackageDescription>Core functions for Selenium-based libraries for .NET</PackageDescription>
+    <RepositoryUrl>https://github.com/</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>selenium webdriver automation</PackageTags>
+    <Copyright>Copyright 2023 Nexus Automation</Copyright>
+    <IsPackable>true</IsPackable>
   </PropertyGroup>
+  
+  <PropertyGroup>
+    <DocumentationFile>Nexus.Core.xml</DocumentationFile>
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Localization\be.json" />
+    <None Remove="Resources\Localization\en.json" />
+    <None Remove="Resources\Localization\pl.json" />
+    <None Remove="Resources\Localization\ru.json" />
+    <None Remove="Resources\Localization\uk.json" />
+    <None Remove="Resources\settings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Localization\uk.json" />
+    <EmbeddedResource Include="Resources\Localization\pl.json" />
+    <EmbeddedResource Include="Resources\Localization\be.json" />
+    <EmbeddedResource Include="Resources\Localization\en.json" />
+    <EmbeddedResource Include="Resources\Localization\ru.json" />
+    <EmbeddedResource Include="Resources\settings.json" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="DotNetSeleniumExtras.PageObjects" Version="3.11.0" />

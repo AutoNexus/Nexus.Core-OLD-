@@ -4,7 +4,69 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Authors>nexus automation committers</Authors>
+    <Company>nexus automation</Company>
+    <Description>Core functions for Selenium-based libraries for .NET</Description>
+    <PackageDescription>Core functions for Selenium-based libraries for .NET</PackageDescription>
+    <RepositoryUrl>https://github.com/</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>selenium webdriver automation</PackageTags>
+    <Copyright>Copyright 2023 Nexus Automation</Copyright>
+    <IsPackable>true</IsPackable>
   </PropertyGroup>
+
+  <PropertyGroup>
+    <DocumentationFile>Nexus.Selenium.xml</DocumentationFile>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\JavaScripts\ExpandShadowRoot.js" />
+    <None Remove="Resources\JavaScripts\SetAttribute.js" />
+    <None Remove="Resources\Localization\be.json" />
+    <None Remove="Resources\Localization\en.json" />
+    <None Remove="Resources\Localization\pl.json" />
+    <None Remove="Resources\Localization\ru.json" />
+    <None Remove="Resources\Localization\uk.json" />
+    <None Remove="Resources\settings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\JavaScripts\AutoAcceptAlerts.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\BorderElement.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\ClickElement.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\GetCheckBoxState.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\GetComboBoxSelectedText.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\GetComboBoxTexts.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\GetElementByXPath.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\ExpandShadowRoot.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\GetElementText.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\GetElementXPath.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\GetTextFirstChild.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\GetViewPortCoordinates.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\IsPageLoaded.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\MouseHover.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\OpenInNewTab.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\ScrollBy.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\ScrollToBottom.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\ScrollToElement.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\ScrollToElementCenter.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\ScrollToTop.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\ScrollWindowBy.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\SelectComboBoxValueByText.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\SetFocus.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\SetInnerHTML.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\OpenNewTab.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\SetAttribute.js" />
+    <EmbeddedResource Include="Resources\JavaScripts\SetValue.js" />
+    <EmbeddedResource Include="Resources\Localization\pl.json" />
+    <EmbeddedResource Include="Resources\Localization\uk.json" />
+    <EmbeddedResource Include="Resources\Localization\be.json" />
+    <EmbeddedResource Include="Resources\Localization\en.json" />
+    <EmbeddedResource Include="Resources\Localization\ru.json" />
+    <EmbeddedResource Include="Resources\settings.json" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="NETStandard.Library" Version="2.0.3" />
