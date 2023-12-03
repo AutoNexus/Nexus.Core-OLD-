@@ -25,6 +25,7 @@ namespace Nexus.TestProject.Tests
             mainPageSteps.AcceptCookies();
             mainPageSteps.AcceptCookiesButtonIsNotDisplayed();
             MainPageSteps.ScrollToTheFooter();
+            //Ddawdawd
         }
     }
 }
