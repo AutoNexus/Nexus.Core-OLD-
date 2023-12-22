@@ -24,20 +24,49 @@ namespace Nexus.Selenium.Configurations
         {
             get
             {
-                var dirtyName = settingsFile.GetValue<string>(".browserName");
-                if (dirtyName.Equals("edgechromium", StringComparison.InvariantCultureIgnoreCase))
+                string brwsrEnv = Environment.GetEnvironmentVariable("browserName");
+                if (brwsrEnv == string.Empty || brwsrEnv == null)
                 {
-                    throw new NotSupportedException("EdgeChromium is now officially supported in Selenium 4. Please use 'edge' browserName in settings.json");
+                    var dirtyName = settingsFile.GetValue<string>(".browserName");
+                    if (dirtyName.Equals("edgechromium", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        throw new NotSupportedException("EdgeChromium is now officially supported in Selenium 4. Please use 'edge' browserName in settings.json");
+                    }
+                    if (!Enum.TryParse(dirtyName, ignoreCase: true, out BrowserName browserName))
+                    {
+                        return BrowserName.Other;
+                    }
+                    return browserName;
                 }
-                if (!Enum.TryParse(dirtyName, ignoreCase: true, out BrowserName browserName))
+                else
                 {
-                    return BrowserName.Other;
+                    var dirtyName = brwsrEnv;
+                    if (dirtyName.Equals("edgechromium", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        throw new NotSupportedException("EdgeChromium is now officially supported in Selenium 4. Please use 'edge' browserName in settings.json");
+                    }
+                    if (!Enum.TryParse(dirtyName, ignoreCase: true, out BrowserName browserName))
+                    {
+                        return BrowserName.Other;
+                    }
+                    return browserName;
                 }
-                return browserName;
+
             }
         }
 
-        public bool IsElementHighlightEnabled => settingsFile.GetValue<bool>(".isElementHighlightEnabled");
+        public bool IsElementHighlightEnabled()
+        {
+            var elementHighLighter = Environment.GetEnvironmentVariable("isElementHighlightEnabled");
+            if(elementHighLighter == null)
+            {
+                return false;
+            }
+            else
+            {
+                return settingsFile.GetValue<bool>(".isElementHighlightEnabled");
+            }
+        }
 
         public bool IsRemote => settingsFile.GetValue<bool>(".isRemote");
 
